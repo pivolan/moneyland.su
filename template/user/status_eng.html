@@ -1,0 +1,285 @@
+<?php 
+	include('config/config.php');
+	include('classes/users.inc.php');
+	$user=new _Users;
+	if (!$user->isUser())header("location: index.html");
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="css/personal.css"/>
+	<link rel="stylesheet" type="text/css" href="css/eng.css"/>
+	<!--[if lte IE 6]>
+		<link href="css/ie.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+	<script type="text/javascript" src="scripts/scripts.js"></script>
+	<title>Статус</title>
+</head>
+
+<body>
+<div id="container">
+<div id="header_right">
+	<div id="lang">
+		<ul>
+			<li class="ru"><a href="status.html" title="русский"></a></li>
+			<li class="en"><a href="" title="english"></a></li>
+		</ul>
+	</div>
+	<div id="flash"></div>
+</div>
+<div id="header_left">
+	<div class="logo"></div>
+	<div class="welcome">
+		<div>Good day <em><?=$user->settings['name'];?></em></div>
+		<div><a href="welcome_eng.html">Sign out</a></div>
+	</div>
+	<!--<form id="autorization" name="autorization" action="#">
+				<input type="text" id="login" value="Логин" onfocus="setlog();" onblur="setlog();" />
+				<div id="changepass"><input type="text" id="password" value="Пароль" onfocus="setpass();" onblur="unsetpass();" /></div>
+				<div class="entersystem" onclick="document.autorization.submit(); this.style.background = 'url(images/entersystem.gif) top'" onmouseover="this.style.background = 'url(images/entersystem.gif) 0 -16px'" onmouseout="this.style.background = 'url(images/entersystem.gif) top'"></div>
+				<div class="enter"><a href="/">Напомнить пароль</a></div>
+			</form>
+			<div class="registration"><a href="/"></a></div>-->
+</div>
+<div id="navigation">
+	<ul>
+		<li class="general"><a href="index_eng.html" title="main page"></a></li>
+		<li class="marketing"><a href="marketing_eng.html" title="marketing"></a></li>
+		<li class="rules"><a href="rules_eng.html" title="rules"></a></li>
+		<li class="questions"><a href="faq_eng.html" title="questions"></a></li>
+		<li class="forum"><a href="/" title="forum"></a></li>
+		<li class="mission"><a href="/" title="mission"></a></li>
+	</ul>
+	<div></div>
+</div>
+<div id="personal_content">
+<div id="personal_nav">
+	<ul>
+		<li class="status"><a class="active" title="status"></a></li>
+		<li class="profile"><a href="profile_eng.html" title="profile"></a></li>
+		<li class="partners"><a href="partners_eng.html" title="partners"></a></li>
+		<li class="mail"><a href="mail_eng.html" title="post service"></a></li>
+		<li class="books"><a href="books1_eng.html" title="books"></a></li>
+	</ul>
+</div>
+<div style="padding-left:29px">
+<div class="bordercontent">
+<div class="status_content">
+	<div class="sideleft">
+		<h1>Your status — level <?=$user->settings['level'];?></h1>
+		<table cellspacing="0" class="status_level">
+			<tr class="odd">
+				<th width="90" height="40">Level</th>
+				<th width="115">New orders</th>
+				<th width="155">Activated orders</th>
+			</tr>
+			<tr class="even">
+				<td width="90">1</td>
+				<td width="115"><a href="/">0</a></td>
+				<td width="155"><a href="/">6/39</a></td>
+			</tr>
+			<tr class="odd">
+				<td width="90">2</td>
+				<td width="115"><a href="/">0</a></td>
+				<td width="155"><a href="/">6/39</a></td>
+			</tr>
+			<tr class="even">
+				<td width="90">3</td>
+				<td width="115"><a href="/">0</a></td>
+				<td width="155"><a href="/">6/39</a></td>
+			</tr>
+		</table>
+	</div>
+	<div class="sideright">
+		<h1>Order for a new level</h1>
+
+		<p>Dear <?=$user->settings['name'];?>. Your status is &mdash; level <?=$user->
+			settings['level'];?>.<br/>It is time to order the next level <?=$user->settings['level']+1;?>
+			from your supervisors of 3 lines:</p>
+	</div>
+</div>
+<div class="level_content">
+	<div class="sideleft">
+		<h1>Your 1st line supervisor:</h1>
+		<table cellspacing="0" class="status_level">
+			<tr class="odd">
+				<th height="28" width="120">Name</th>
+				<th width="120">Login</th>
+				<th width="120">Level</th>
+			</tr>
+			<tr class="even">
+				<td height="28">Светлана</td>
+				<td>saika</td>
+				<td>3</td>
+			</tr>
+			<tr class="level_contacts">
+				<td colspan="3" height="28">Contacts</td>
+			</tr>
+		</table>
+		<table cellspacing="0" class="status_level_more">
+			<tr class="even">
+				<td width="150" height="28">Skype: sfatina</td>
+				<td width="210">E-mail: MoneyLand28@yandex.ru</td>
+			</tr>
+			<tr class="odd">
+				<td height="28">ICQ: 355755935</td>
+				<td width="210">Phone: 8 915 799 46 17</td>
+			</tr>
+			<tr class="level_sendmail">
+				<td colspan="2"><a href="mailto:">Send your supervisor a message</a></td>
+			</tr>
+		</table>
+	</div>
+	<div class="sideright">
+		<p>Transfer 50 wme to E-wallet of your 1st line supervisor: E323529663590. Transfer must be with 3
+			days valid security code.</p>
+
+		<p>Or transfer the same sum of money to Yandex.Money-wallet of your 1st line supervisor:
+			41001429338799.</p>
+
+		<p>Or transfer the same sum of money to LiqPAY - account number of your 1st line supervisor: .</p>
+
+		<form id="kurator" name="kurator1" method="post" enctype="multipart/form-data"
+			  action="proverka.php">
+			Enter security code: <input type="text" name="protection" class="protection"/>
+
+			<div class="order"
+				 onclick="document.kurator1.submit(); this.style.background = 'url(images/order_eng.gif) top'"
+				 onmouseover="this.style.background = 'url(images/order_eng.gif) 0 bottom'"
+				 onmouseout="this.style.background = 'url(images/order_eng.gif) top'"></div>
+			Indicate payment system: <input type="text" name="paysystem" class="paysystem"/>
+		</form>
+	</div>
+</div>
+
+<div class="level_content">
+	<div class="sideleft">
+		<h1>Your 2nd line supervisor:</h1>
+		<table cellspacing="0" class="status_level">
+			<tr class="odd">
+				<th height="28" width="120">Name</th>
+				<th width="120">Login</th>
+				<th width="120">Level</th>
+			</tr>
+			<tr class="even">
+				<td height="28">Людмила</td>
+				<td>veter</td>
+				<td>3</td>
+			</tr>
+			<tr class="level_contacts">
+				<td colspan="3" height="28">Contacts</td>
+			</tr>
+		</table>
+		<table cellspacing="0" class="status_level_more">
+			<tr class="even">
+				<td width="150" height="28">Skype: sfatina</td>
+				<td width="210">E-mail: MoneyLand28@yandex.ru</td>
+			</tr>
+			<tr class="odd">
+				<td height="28">ICQ: 355755935</td>
+				<td width="210">Phone: 8 915 799 46 17</td>
+			</tr>
+			<tr class="level_sendmail">
+				<td colspan="2"><a href="mailto:">Send your supervisor a message</a></td>
+			</tr>
+		</table>
+	</div>
+	<div class="sideright">
+		<p>Transfer 50 wme to E-wallet of your 1st line supervisor: E323529663590. Transfer must be with 3
+			days valid security code.</p>
+
+		<p>Or transfer the same sum of money to Yandex.Money-wallet of your 1st line supervisor:
+			41001429338799.</p>
+
+		<p>Or transfer the same sum of money to LiqPAY - account number of your 1st line supervisor: .</p>
+
+		<form id="kurator" name="kurator2" method="post" enctype="multipart/form-data"
+			  action="proverka.php">
+			Enter security code: <input type="text" name="protection" class="protection"/>
+			<!--<div class="order" onclick="document.kurator2.submit(); this.style.background = 'url(images/order.gif) top'" onmouseover="this.style.background = 'url(images/order.gif) 0 bottom'" onmouseout="this.style.background = 'url(images/order.gif) top'"></div>-->
+			<div class="activated"></div>
+			Indicate payment system: <input type="text" name="paysystem" class="paysystem"/>
+		</form>
+	</div>
+</div>
+
+<div class="level_content">
+	<div class="sideleft">
+		<h1>Your 3rd line supervisor:</h1>
+		<table cellspacing="0" class="status_level">
+			<tr class="odd">
+				<th height="28" width="120">Name</th>
+				<th width="120">Login</th>
+				<th width="120">Level</th>
+			</tr>
+			<tr class="even">
+				<td height="28">Сергей</td>
+				<td>MoneyLand</td>
+				<td>3</td>
+			</tr>
+			<tr class="level_contacts">
+				<td colspan="3" height="28">Contacts</td>
+			</tr>
+		</table>
+		<table cellspacing="0" class="status_level_more">
+			<tr class="even">
+				<td width="150" height="28">Skype: sfatina</td>
+				<td width="210">E-mail: MoneyLand28@yandex.ru</td>
+			</tr>
+			<tr class="odd">
+				<td height="28">ICQ: 355755935</td>
+				<td width="210">Phone: 8 915 799 46 17</td>
+			</tr>
+			<tr class="level_sendmail">
+				<td colspan="2"><a href="mailto:">Send your supervisor a message</a></td>
+			</tr>
+		</table>
+	</div>
+	<div class="sideright">
+		<p>Transfer 100 wme to E-wallet of your 1st line supervisor: E323529663590. Transfer must be with 3
+			days valid security code.</p>
+
+		<p>Or transfer the same sum of money to Yandex.Money-wallet of your 1st line supervisor:
+			41001429338799.</p>
+
+		<p>Or transfer the same sum of money to LiqPAY - account number of your 1st line supervisor: .</p>
+
+		<form id="kurator" name="kurator3" method="post" enctype="multipart/form-data"
+			  action="proverka.php">
+			Enter security code: <input type="text" name="protection" class="protection"/>
+
+			<div class="order"
+				 onclick="document.kurator3.submit(); this.style.background = 'url(images/order_eng.gif) top'"
+				 onmouseover="this.style.background = 'url(images/order_eng.gif) 0 bottom'"
+				 onmouseout="this.style.background = 'url(images/order_eng.gif) top'"></div>
+			Indicate payment system: <input type="text" name="paysystem" class="paysystem"/>
+		</form>
+	</div>
+</div>
+
+<div class="level_content">
+	<h1>Any other terms of payment &mdash; could be discussed with your supervisors</h1>
+
+	<p>When transfering money indicate your login: From Nazim thank you!</p>
+
+	<p>After conformation of money acceptance made by your supervisor, you get a level. 3. If your
+		supervisor does not confirm your order within 3 days after sending it &mdash please inform <a
+				href="/">administrator.</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="line"></div>
+<div id="footer">
+	<div class="copyright">All rights reserved 2009</div>
+	<div class="author">
+
+		Website template by <a href="http://www.ruswebmasters.ru" target="_blank"><strong><font color="#FFFFCC">R</font><font
+			color="#0066FF">U</font><font color="#FF0000">S</font>WebMasters</strong></a>
+	</div>
+</div>
+</div>
+</body>
+</html>

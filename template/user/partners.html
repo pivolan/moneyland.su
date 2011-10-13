@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" type="text/css" href="/css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/personal.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/rus.css"/>
+	<LINK REL="SHORTCUT ICON" HREF="/images/favicon.ico">
+
+	<!--[if lte IE 6]>
+		<link href="css/ie.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+	<script type="text/javascript" src="/scripts/scripts.js"></script>
+	<title>Ваши партнеры</title>
+</head>
+
+<body>
+<div id="container">
+	<div id="header_right">
+		<div id="lang">
+			<ul>
+				<li class="ru"><a href="" title="русский"></a></li>
+				<li class="en"><a href="/user/partners_eng.html" title="english"></a></li>
+			</ul>
+		</div>
+		<div id="flash"></div>
+	</div>
+	<div id="header_left">
+		<div class="logo"></div>
+		<div class="welcome">
+			<div>Добро пожаловать <em>{{ user.username }}</em></div>
+			<div><a href="/logout/">Выход</a></div>
+		</div>
+		<!--<form id="autorization" name="autorization" action="#">
+			<input type="text" id="login" value="Логин" onfocus="setlog();" onblur="setlog();" />
+			<div id="changepass"><input type="text" id="password" value="Пароль" onfocus="setpass();" onblur="unsetpass();" /></div>
+			<div class="entersystem" onclick="document.autorization.submit(); this.style.background = 'url(images/entersystem.gif) top'" onmouseover="this.style.background = 'url(images/entersystem.gif) 0 -16px'" onmouseout="this.style.background = 'url(images/entersystem.gif) top'"></div>
+			<div class="enter"><a href="/">Напомнить пароль</a></div>
+		</form>
+        <div class="registration"><a href="/"></a></div>-->
+	</div>
+	<div id="navigation">
+		<ul>
+			<li class="general"><a href="/index.html" title="главная"></a></li>
+			<li class="marketing"><a href="/marketing.html" title="маркетинг"></a></li>
+			<li class="rules"><a href="/rules.html" title="правила"></a></li>
+			<li class="questions"><a href="/faq.html" title="вопросы"></a></li>
+			<li class="forum"><a href="/" title="форум"></a></li>
+			<li class="mission"><a href="/services.html" title="сервисы"></a></li>
+			<li class="article"><a href="/article.html" title="статьи"></a></li>
+		</ul>
+		<div></div>
+	</div>
+	<div id="personal_content">
+		<div id="personal_nav">
+			<ul>
+				<li class="status"><a href="/user/status.html"></a></li>
+				<li class="profile"><a href="/user/profile.html"></a></li>
+				<li class="partners"><a class="active"></a></li>
+				<li class="mail"><a href="/user/mail.html"></a></li>
+				<li class="books"><a href="/user/books1.html"></a></li>
+			</ul>
+		</div>
+		<div style="padding-left:29px">
+			<div class="borderpartners">
+				<div id='you' class='bgpl_{{users.0.color}}'>{{ users.0.username }}<br/> {{ users.0.first_name }}</div>
+				<div class="firstline">
+					{% for ch in users.0.ch %}
+						<div class='bgpl_{{ ch.color }}' {% cycle 'style="margin-left:61px;"' '' '' %}><a
+								title='Уровень {{ ch.level}}'
+								href='/user/partner/{{ch.key}}'>{{ ch.username }}</a><br/> {{ ch.first_name }}</div>
+					{% endfor %}
+				</div>
+				<div class="secondline">
+					{% for ch in users.0.ch %}
+						{% for chh in ch.ch %}
+							<div class='smpl_{{ chh.color }}'><a title='Уровень: {{chh.level}}'
+																 href='/user/partner/{{chh.key}}'>{{ chh.username }}</a><br/> {{ chh.first_name }}
+							</div>
+						{% endfor %}
+					{% endfor %}
+				</div>
+				<div class="thirdline">
+					{% for ch in users.0.ch %}
+						{% for chh in ch.ch %}
+							<div class='smpl_{{ chh.ch.0.color }}'><a title='Уровень: {{chh.ch.0.level}}'
+																	  href='/user/partner/{{chh.ch.0.key}}'>{{ chh.ch.0.username }}</a><br/> {{ chh.ch.0.first_name }}
+							</div>
+						{% endfor %}
+					{% endfor %}
+				</div>
+				<div class="thirdline">
+					{% for ch in users.0.ch %}
+						{% for chh in ch.ch %}
+							<div class='smpl_{{ chh.ch.1.color }}'><a title='Уровень: {{chh.ch.1.level}}'
+																	  href='/user/partner/{{chh.ch.1.key}}'>{{ chh.ch.1.username }}</a><br/> {{ chh.ch.1.first_name }}
+							</div>
+						{% endfor %}
+					{% endfor %}
+				</div>
+				<div class="thirdline">
+					{% for ch in users.0.ch %}
+						{% for chh in ch.ch %}
+							<div class='smpl_{{ chh.ch.2.color }}'><a title='Уровень: {{chh.ch.2.level}}'
+																	  href='/user/partner/{{chh.ch.2.key}}'>{{ chh.ch.2.username }}</a><br/> {{ chh.ch.2.first_name }}
+							</div>
+						{% endfor %}
+					{% endfor %}
+				</div>
+				<div class="both"></div>
+
+				<div class="calculators">
+					<div class="calculator1">
+						<div class="numbres" id="numbers1">
+						</div>
+					</div>
+					<div class="calctext">
+						Ваш заработок на сегодняшний день!
+					</div>
+					<div class="calculator2">
+						<div class="numbres" id="numbers2">
+						</div>
+					</div>
+					<div class="calctext2">
+						Это Ваша возможная прибыль при переходе Вашей структуры на следующий уровень.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="line"></div>
+	<div id="footer">
+		<div class="copyright">Все права защищены 2010</div>
+		<div class="author">
+
+
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	SetNumbers({{currentincome}}, {{maxincome}});
+</script>
+</body>
+</html>

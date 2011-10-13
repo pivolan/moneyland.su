@@ -1,0 +1,106 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_MOD_BY	Bostjan Mihoric	/ccompletion@gmail.com/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	/unofficial modification/
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	/unofficial modification/
+EmailUser	models.py	3;"	namespace
+HttpResponse	views.py	1;"	namespace
+HttpResponseRedirect	views.py	2;"	namespace
+Members	models.py	14;"	class
+MembersForm	models.py	41;"	class
+Meta	models.py	42;"	class	class:MembersForm
+Meta	models.py	92;"	class	class:RegisterForm
+ModelForm	models.py	5;"	namespace
+News	models.py	108;"	class
+NewsForm	models.py	113;"	class
+Page	models.py	96;"	class
+PageForm	models.py	102;"	class
+RegisterForm	models.py	55;"	class
+RequestContext	util.py	2;"	namespace
+RestorePasswordForm	models.py	46;"	class
+User	views.py	5;"	namespace
+Visitor	models.py	8;"	class
+_	models.py	6;"	namespace
+_	views.py	4;"	namespace
+added_on	models.py	10;"	variable	class:Visitor
+added_on	models.py	111;"	variable	class:News
+added_on	models.py	99;"	variable	class:Page
+authenticate	views.py	6;"	namespace
+cc_myself	models.py	105;"	variable	class:PageForm
+cdel	views.py	135;"	function
+child	models.py	30;"	member	class:Members
+children	models.py	24;"	variable	class:Members
+clean	models.py	78;"	member	class:RegisterForm
+clean_login	models.py	48;"	member	class:RestorePasswordForm
+clean_login	models.py	73;"	member	class:RegisterForm
+confirm	models.py	59;"	variable	class:RegisterForm
+content	models.py	104;"	variable	class:PageForm
+content	models.py	110;"	variable	class:News
+content	models.py	115;"	variable	class:NewsForm
+content	models.py	98;"	variable	class:Page
+cookies	models.py	12;"	variable	class:Visitor
+date	models.py	23;"	variable	class:Members
+datetime	views.py	14;"	namespace
+db	models.py	1;"	namespace
+delall	views.py	140;"	function
+desc	models.py	11;"	variable	class:Visitor
+djangoforms	models.py	2;"	namespace
+email	models.py	61;"	variable	class:RegisterForm
+error_messages	models.py	70;"	variable	class:RegisterForm
+exclude	models.py	44;"	variable	class:MembersForm.Meta
+exclude	models.py	94;"	variable	class:RegisterForm.Meta
+form	views.py	72;"	function
+formuser	views.py	86;"	function
+icq	models.py	17;"	variable	class:Members
+icq	models.py	62;"	variable	class:RegisterForm
+ip	models.py	9;"	variable	class:Visitor
+keywords	models.py	100;"	variable	class:Page
+keywords	models.py	106;"	variable	class:PageForm
+level	models.py	21;"	variable	class:Members
+liqpay	models.py	28;"	variable	class:Members
+liqpay	models.py	66;"	variable	class:RegisterForm
+login	models.py	16;"	variable	class:Members
+login	models.py	47;"	variable	class:RestorePasswordForm
+login	models.py	56;"	variable	class:RegisterForm
+login	views.py	6;"	namespace
+logout	views.py	6;"	namespace
+main	views.py	17;"	function
+memcache	views.py	11;"	namespace
+model	models.py	43;"	variable	class:MembersForm.Meta
+model	models.py	93;"	variable	class:RegisterForm.Meta
+name	models.py	103;"	variable	class:PageForm
+name	models.py	15;"	variable	class:Members
+name	models.py	57;"	variable	class:RegisterForm
+name	models.py	97;"	variable	class:Page
+news	views.py	147;"	function
+os	views.py	15;"	namespace
+pages	views.py	155;"	function
+parents	models.py	25;"	variable	class:Members
+parents	models.py	67;"	variable	class:RegisterForm
+password	models.py	58;"	variable	class:RegisterForm
+phone	models.py	26;"	variable	class:Members
+phone	models.py	63;"	variable	class:RegisterForm
+random	views.py	13;"	namespace
+register	views.py	176;"	function
+render_to	util.py	4;"	function
+render_to	views.py	8;"	namespace
+render_to_response	util.py	1;"	namespace
+render_to_response	views.py	3;"	namespace
+renderer	util.py	5;"	function	function:render_to
+restorepassword	views.py	162;"	function
+skype	models.py	18;"	variable	class:Members
+skype	models.py	60;"	variable	class:RegisterForm
+terms	models.py	68;"	variable	class:RegisterForm
+test	views.py	38;"	function
+title	models.py	109;"	variable	class:News
+title	models.py	114;"	variable	class:NewsForm
+user	models.py	22;"	variable	class:Members
+welcome	views.py	107;"	function
+widget	models.py	69;"	variable	class:RegisterForm
+wme	models.py	27;"	variable	class:Members
+wme	models.py	64;"	variable	class:RegisterForm
+wrapper	util.py	6;"	function	function:render_to.renderer
+yandexmoney	models.py	29;"	variable	class:Members
+yandexmoney	models.py	65;"	variable	class:RegisterForm

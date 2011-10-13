@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Успешная карьера с MoneyLand!</title>
+<link rel="stylesheet" href="css/styles.css" />
+<script src="scripts/swfobject_modified.js" type="text/javascript"></script>
+<script src="scripts/script.js" type="text/javascript"></script>
+</head>
+<?php 
+$dhost="localhost";
+$duser="ruswebm_owner";
+$dpass="RhYfjkspo";
+$dname="ruswebm_ip";
+$aDBLink = mysql_connect($dhost, $duser, $dpass) or die("Cannot connect to the database");
+mysql_select_db($dname) or die("Could not select database");
+?>
+<?PHP
+	$ip2 = $_SERVER['REMOTE_ADDR'];
+	$w = substr($ip2, 0, strpos($ip2,"."));
+	$ip2 = substr($ip2, strpos($ip2,".")+1, (strlen($ip2)-strpos($ip2,".")));
+	$x = substr($ip2, 0, strpos($ip2,"."));
+	$ip2 = substr($ip2, strpos($ip2,".")+1, strlen($ip2)-strpos($ip2,"."));
+	$y = substr($ip2, 0, strpos($ip2,"."));
+	$ip2 = substr($ip2, strpos($ip2,".")+1, strlen($ip2)-strpos($ip2,"."));
+	$z = substr($ip2, 0, strlen($ip2));
+	
+	$ipnum = 16777216*$w + 65536*$x + 256*$y + $z;
+	$results=mysql_query("SELECT name, country FROM ip_country WHERE $ipnum >= begin_num AND $ipnum <= end_num LIMIT 1");
+	if($line=mysql_fetch_array($results)){
+		$title=$line[name];
+		$country=$line[country];}
+	else{
+		$tmp_ip[1] = $_SERVER['HTTP_X_FORWARDED_FOR'] ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_ENV['HTTP_X_FORWARDED_FOR'];
+		$tmp_ip[2] = $_SERVER['HTTP_CLIENT_IP'] ? $_SERVER['HTTP_CLIENT_IP'] : $_ENV['HTTP_CLIENT_IP'];
+		$tmp_ip[3] = $_SERVER['REMOTE_ADDR'] ? $_SERVER['REMOTE_ADDR'] : $_ENV['REMOTE_ADDR'];
+
+		switch(TRUE) {
+			case !empty($tmp_ip[1]):
+				$tmp_ip[1] = preg_replace('/,.*/', '', $tmp_ip[1]);
+		  		$ip = $tmp_ip[1];
+  				break;
+			case !empty($tmp_ip[2]):
+  				$ip = $tmp_ip[2];
+		  		break;
+			case !empty($tmp_ip[3]):
+  				$ip = $tmp_ip[3];
+		  		break;
+			default:
+  				$ip = '0.0.0.0';
+		}	
+		$w = substr($ip, 0, strpos($ip,"."));
+		$ip = substr($ip, strpos($ip,".")+1, (strlen($ip)-strpos($ip,".")));
+		$x = substr($ip, 0, strpos($ip,"."));
+		$ip = substr($ip, strpos($ip,".")+1, strlen($ip)-strpos($ip,"."));
+		$y = substr($ip, 0, strpos($ip,"."));
+		$ip = substr($ip, strpos($ip,".")+1, strlen($ip)-strpos($ip,"."));
+		$z = substr($ip, 0, strlen($ip));
+	
+		$ipnum = 16777216*$w + 65536*$x + 256*$y + $z;
+		$results=mysql_query("SELECT name, country FROM ip_country WHERE $ipnum >= begin_num AND $ipnum <= end_num LIMIT 1");
+		if($line=mysql_fetch_array($results)){
+			$name=$line[name];
+			$country=$line[country];}
+		else{$name="Russian Federation";
+			$country="RU";}
+	}
+	if($country=="AM"||$country=="AZ"||$country=="BY"||$country=="KZ"||$country=="KG"||$country=="RU"||$country=="TJ"||$country=="TM"||$country=="UA"){
+		$title = "Мы работаем с ";
+		switch($country){
+			case "AM": $title .= "Арменией"; break;
+			case "AZ": $title .= "Азербайджаном"; break;
+			case "BY": $title .= "Белоруссией"; break;
+			case "KZ": $title .= "Казахстаном"; break;
+			case "KG": $title .= "Киргизстаном"; break;
+			case "RU": $title .= "Россией"; break;
+			case "TJ": $title .= "Таджикистаном"; break;
+			case "TM": $title .= "Туркменистаном"; break;
+			case "UA": $title .= "Украиной"; break;
+		}
+		$rus = true;
+	}
+	else{
+		$rus = false;
+		$title = "We are working with ".$name;
+	}
+
+if ((isset($_POST["email"]))&&(isset($_POST["text"]))) {
+  $email   = substr( $_POST['email'], 0, 100 );
+  $text = substr( $_POST['text'], 0, 1000 );
+ 
+  $error = '';
+  if($rus){
+  	if (empty($email) || $email == "Ваш e-mail") $error = 'Не заполнено поле e-mail';
+	if (empty($text) || $text == "Текст сообщения") $error = 'Не заполнено поле "Сообщение"';
+	if (!empty($email) and !preg_match( "#^[0-9a-z_\-\.]+@[0-9a-z\-\.]+\.[a-z]{2,6}$#i", $email ) )
+  		$error = 'e-mail не соответствует формату';}
+  else{
+  	if (empty($email) || $email == "Your e-mail") $error = 'Empty e-mail';
+  	if (empty($text) || $text == "Your message") $error = 'Empty message';
+	if (!empty($email) and !preg_match( "#^[0-9a-z_\-\.]+@[0-9a-z\-\.]+\.[a-z]{2,6}$#i", $email ) )
+  		$error = 'Incorrect e-mail';}
+  if (!empty($error)) {
+    $_SESSION['sendMailForm']['error'] = $error;
+    $_SESSION['sendMailForm']['email'] = $email;
+    $_SESSION['sendMailForm']['text'] = $text;
+  }
+  else
+  {
+  $body .= "e-mail: ".$email."\r\n\r\n";
+  $body .= "Сообщение:\r\n\r\n".$text;
+  $body = quoted_printable_encode($body);
+
+//  $theme   = '=?windows-1251?B?'.base64_encode('Заполнена форма на сайте').'?=';
+  $theme   = 'MoneyLand!';	
+  $headers = "From: ".$_SERVER['SERVER_NAME']." <".$email.">\r\n";
+  $headers = $headers."Return-path: <".$email.">\r\n";
+  $headers = $headers."Content-type: text/plain; charset=\"utf-8\"\r\n";
+  $headers = $headers."Content-Transfer-Encoding: quoted-printable\r\n\r\n";
+  $mailto = "wellina21@rambler.ru";
+  
+  if(mail($mailto, $theme, $body, $headers))
+    $_SESSION['success'] = true;
+  else
+    $_SESSION['success'] = false;
+   }
+}
+
+function quoted_printable_encode ( $string ) {
+   $string = preg_replace_callback (
+   '/[^\x21-\x3C\x3E-\x7E\x09\x20]/',
+   'quoted_printable_encode_character',
+   $string
+   );
+   $newline = "=\r\n";
+   $string = preg_replace ( '/(.{73}[^=]{0,3})/', '$1'.$newline, $string);
+   return $string;
+}
+
+function quoted_printable_encode_character ( $matches ) {
+   $character = $matches[0];
+   return sprintf ( '=%02x', ord ( $character ) );
+}
+//echo $_SERVER["HTTP_ACCEPT_LANGUAGE"];
+?>
+<body>
+<div id="container">
+	<div id="banner">
+      <div class="overbanner"><img src="images/blank.gif" usemap="#Map" /></div>
+   	  <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="90" style="background-color:#F9FFDE;">
+    	  <param name="movie" value="images/banner.swf" />
+    	  <param name="quality" value="high" />
+    	  <param name="wmode" value="opaque" />
+    	  <param name="swfversion" value="9.0.45.0" />
+    	  <!-- This param tag prompts users with Flash Player 6.0 r65 and higher to download the latest version of Flash Player. Delete it if you don’t want users to see the prompt. -->
+    	  <param name="expressinstall" value="scripts/expressInstall.swf" />
+    	  <!-- Next object tag is for non-IE browsers. So hide it from IE using IECC. -->
+    	  <!--[if !IE]>-->
+    	  <object type="application/x-shockwave-flash" data="images/banner.swf" width="100%" height="90" style="background-color:#F9FFDE;">
+    	    <!--<![endif]-->
+    	    <param name="quality" value="high" />
+    	    <param name="wmode" value="opaque" />
+    	    <param name="swfversion" value="9.0.45.0" />
+    	    <param name="expressinstall" value="scripts/expressInstall.swf" />
+    	    <!--[if !IE]>-->
+  	    </object>
+    	  <!--<![endif]-->
+  	  </object>
+	</div>
+    <div id="leftside">
+    	<div class="one">
+        	<div>
+            	<h1><?  if($rus) echo "Почему именно MoneyLand?"; else echo "Why MoneyLand?"; ?></h1>
+                <p><? if($rus) echo "Потому что этот проект был создан с одной простой целью — обеспечить обычного человека интересной и прибыльной работой!"; else echo "This project was made with simple goal, help average person to find interesting and profitable job."; ?></p>
+          	</div>
+        </div>
+    	<div class="two">
+        	<div>
+            	<h1><? if($rus) echo "Чем отличается MoneyLand от других MLM - проектов?"; else echo "What the difference between MoneyLand and other MLM projects?"; ?></h1>
+                <p><? if($rus) echo "Все расчеты происходят только между двумя людьми — куратором и его клиентом, и никаким третьим лицам ничего не отчисляется."; else echo "All transactions are made between two people only, supervisor and his/hers client. Without a third party involved both client and supervisor are able too keep their full commission."; ?></p>
+          	</div>
+        </div>
+    	<div class="three">
+        	<div>
+            	<h1><? if($rus) echo "Это финансовая пирамида? Это не финансовая пирамида!"; else echo "Is this a financial pyramid? This is not a financial pyramid!"; ?></h1>
+                <p><? if($rus) echo "Во всех финансовых пирамидах деньги копятся на верхушке у боссов, а когда их становится достаточное количество, боссы убегают. У нас вообще нет никакой верхушки и даже нет внутренней денежной системы."; else echo "In all these schemes money is accumulated at the top of the pyramid, in the hands of big bosses. When the pyramid has made enough money these big bosses usually disappear. We don not have actual top structure, we even do not possess any internal payment system."; ?></p>
+          	</div>
+        </div>
+    </div>
+    <div id="rightside">
+	<div class="photo" style="background:url(photo.jpg) no-repeat; margin-left:20px;"><img src="images/blank.gif" usemap="#Photo" /></div>
+		<div class="underphoto">
+        	<p><? if($rus) echo "Здравствуйте, меня зовут "; else echo "My name is "; ?><span style="color:#FD6500;"><? if ($rus) echo "Оксана"; else echo "Oksana"; ?></span><br /><? if($rus) echo "<p style=\"font-size:12px; font-style:italic; width:270px; margin:5px 0 0;\">\"Мы часто отказываемся от предложений судьбы, ожидая чего-то большего в будущем. Но такая странность - судьба больше не торопится к нам со своими предложениями. И не важно, почему ты отказался - из страха или по прихоти. Она не заходит в твой дом дважды\"</p><div style=\"margin:0 20px 5px; font-size:12px; float:right; font-style:italic;\">Анхель де Куатье</div>"; else echo "I would like to present you the project that changed my life!"; ?></p>
+            <?php
+				if (isset($_SESSION['sendMailForm'])){
+		 			echo "<p style=\"margin:15px 0 0; color:#FF0000;\">".$_SESSION['sendMailForm']['error']."</p>";
+					$email = htmlspecialchars($_SESSION['sendMailForm']['email']);
+					$text = htmlspecialchars($_SESSION['sendMailForm']['text']);
+					unset($_SESSION['sendMailForm']);
+				}elseif(isset($_SESSION['success'])){
+					if($_SESSION['success']){
+						echo "<p style=\"margin:15px 0 0; color:#0099FF;\">"; if($rus) echo "Ваше сообщение отправлено.</p>"; else echo "Your message has been sent.</p>";}
+  					else{
+    					echo "<p style=\"margin:15px 0 0; color:#FF0000;\">"; if($rus) echo "Ошибка при отправке письма.</p>"; else echo "Error during message delivery.</p>";}
+		  			unset( $_SESSION['success'] );
+		  			if($rus) $email = 'Ваш e-mail'; else $email = 'Your e-mail';
+  					if($rus) $text = 'Текст сообщения'; else $text = 'Your message';
+				}else{
+					echo "<p style=\"margin:15px 0 0;\">"; if($rus) echo "Написать сообщение</p>"; else echo "Write a message</p>";
+					if($rus) $email = 'Ваш e-mail'; else $email = 'Your e-mail';
+  					if($rus) $text = 'Текст сообщения'; else $text = 'Your message';
+				}
+			?>
+            <form name="mail" method="post" enctype="multipart/form-data" action="#">
+            	<input type="hidden" id="hd" <? if($rus) echo "value=\"ru\""; else echo "value=\"en\""; ?> />
+            	<input type="text" name="email" class="email" <? echo "value=\"$email\""; ?> />
+            	<textarea name="text" class="message"><? echo $text ?></textarea>
+              <input type="submit" name="send" value="" class="send" style="background:url(images/send.gif) top no-repeat;" />
+            </form>
+        </div>
+    </div>
+    <div class="clear"></div>
+	<div class="bottombanner">
+    	<div class="conference">
+        	<p style="font-size:24px; margin:10px 0 0 10px; text-align:center; width:200px;"><? if($rus) echo "Конференция"; else echo "Conference";?><br /><span style="font-size:30px;">MoneyLand</span></p>
+            <p style="margin:2px 0 0 33px;"><? if ($rus) echo "Каждый будний день<br />в 20:00 по Москве"; else echo "Every working day at<br />8 p.m. of Moscow time";?></p>
+        </div>
+      	
+		<div class="register">
+        <div class="underregister"><img src="../images/blank.gif" usemap="#Registrat" /></div>
+        	<p style="font-size:18px; margin:25px 0 0 10px; text-align:center; width:200px;"><? if($rus) echo "Регистрация в проекте"; else echo "Registration in";?><br /><span style="font-size:38px;">MoneyLand</span></p>
+        </div>
+        
+        <div class="contacts">
+            <h2 style="font-size:16px; margin:15px 0 0 15px;"><? if($rus) echo "Контакты"; else echo "Contacts";?></h2><p style="margin:10px 0 0 15px; line-height:18px;">ICQ: <br />Skype: okzana1<br />E-mail: wellina21@rambler.ru</p>
+        </div>
+    </div>
+    <div id="footer">
+    	<? if($rus) echo "Все права защищены 2009"; else echo "All rights reserved 2009";?>
+    </div>
+</div>
+<script type="text/javascript">
+<!--
+swfobject.registerObject("FlashID");
+init();	 
+//-->
+</script>
+<map name="Map" id="Map">
+<area shape="poly" coords="0,0,1000,0,1000,90,0,90" href="http://moneyland.v-10.biz/index.php?reflink=32694" title="Присоединяйся к нашей команде!" alt="Присоединяйся к нашей команде!" />
+</map>
+<map name="Registrat" id="Registrat">
+<area shape="poly" coords="-1,0,286,0,286,27,299,30,299,118,223,119,216,116,216,112,-1,112" href="http://moneyland.v-10.biz/index.php?reflink=32694" title="Присоединяйся к нашей команде!" alt="Присоединяйся к нашей команде!" />
+</map>
+<map name="Photo" id="Photo">
+<area shape="poly" coords="0,0,259,0,259,183,0,183" href="http://moneyland.v-10.biz/index.php?reflink=32694" title="<? echo $title; ?>" alt="<? echo $title; ?>" />
+</map>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-9526846-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

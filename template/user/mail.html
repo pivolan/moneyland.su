@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" type="text/css" href="/css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/personal.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/rus.css"/>
+	<LINK REL="SHORTCUT ICON" HREF="/images/favicon.ico">
+
+	<!--[if lte IE 6]>
+		<link href="css/ie.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+	<script type="text/javascript" src="/scripts/jquery.js"></script>
+	<title>Почта</title>
+</head>
+
+<body>
+<div id="container">
+	<div id="header_right">
+		<div id="lang">
+			<ul>
+				<li class="ru"><a href="" title="русский"></a></li>
+				<li class="en"><a href="/user/mail_eng.html" title="english"></a></li>
+			</ul>
+		</div>
+		<div id="flash"></div>
+	</div>
+	<div id="header_left">
+		<div class="logo"></div>
+		<div class="welcome">
+			<div>Добро пожаловать <em>{{ user.username }}</em></div>
+			<div><a href="/logout/">Выход</a></div>
+		</div>
+		<!--<form id="autorization" name="autorization" method="post" action="http://ruswebmasters.ru">
+			<input type="text" id="login" value="Логин" onfocus="setlog();" onblur="setlog();" />
+			<div id="changepass"><input type="text" id="password" value="Пароль" onfocus="setpass();" onblur="unsetpass();" /></div>
+			<div class="entersystem" onclick="document.autorization.submit(); this.style.background = 'url(images/entersystem.gif) top'" onmouseover="this.style.background = 'url(images/entersystem.gif) 0 -16px'" onmouseout="this.style.background = 'url(images/entersystem.gif) top'"></div>
+			<div class="enter"><a href="/">Напомнить пароль</a></div>
+		</form>
+        <div class="registration"><a href="/"></a></div>-->
+	</div>
+	<div id="navigation">
+		<ul>
+			<li class="general"><a href="/index.html" title="главная"></a></li>
+			<li class="marketing"><a href="/marketing.html" title="маркетинг"></a></li>
+			<li class="rules"><a href="/rules.html" title="правила"></a></li>
+			<li class="questions"><a href="/faq.html" title="вопросы"></a></li>
+			<li class="forum"><a href="/" title="форум"></a></li>
+			<li class="mission"><a href="/services.html" title="сервисы"></a></li>
+			<li class="article"><a href="/article.html" title="статьи"></a></li>
+		</ul>
+		<div></div>
+	</div>
+	<div id="personal_content">
+		<div id="personal_nav">
+			<ul>
+				<li class="status"><a href="/user/status.html"></a></li>
+				<li class="profile"><a href="/user/profile.html"></a></li>
+				<li class="partners"><a href="/user/partners.html"></a></li>
+				<li class="mail"><a class="active"></a></li>
+				<li class="books"><a href="/user/books1.html"></a></li>
+			</ul>
+		</div>
+		<div style="padding-left:29px">
+			<div class="bordercontent">
+				<div class="mail_content">
+					<h1>Ваша личная почта</h1>
+
+					<h2><a>Полученные сообщения</a> | <a href='/user/mail/out'>Отправленные сообщения</a> | <a
+							href="/user/sentmail/">Отправить сообщение</a></h2>
+
+					<div class="line"></div>
+					<h3>Полученные сообщения</h3>
+					<form id="mail" name="mail" method="POST" action="">
+						<div class="delselected"
+							 onclick="document.mail.submit(); this.style.background = 'url(/images/delselected.gif) top'"
+							 onmouseover="this.style.background = 'url(/images/delselected.gif) bottom'"
+							 onmouseout="this.style.background = 'url(/images/delselected.gif) top'"></div>
+						<table cellspacing="0" class="main_mail">
+							<tr height="40">
+								<th width="40">
+									<input id="allcheckbox" name="allcheckbox" type="checkbox" style="display:none;"/>
+
+									<div id="fonallcheck" onclick="AllSel();"></div>
+								</th>
+								<th><span>Тема сообщения</span></th>
+								<th width="200">Отправитель</th>
+								<th width="120">Дата</th>
+							</tr>
+							{% for message in messages %}
+								<tr>
+									<td>
+										<input id="checkbox{{message.key.id}}" name="checkbox{{message.key.id}}"
+											   type="checkbox" style="display:none;"/>
+
+										<div class="foncheck" onclick="SelCheck({{message.key.id}}, this);"></div>
+									</td>
+									{% if message.read %}
+										<td><span><a
+												href="/user/mail/id{{message.key.id}}">{{ message.title|slice:":55" }}</a></span>
+										</td>
+									{% else %}
+										<td><span><b><a
+												href="/user/mail/id{{message.key.id}}">{{ message.title|slice:":55" }}</a></b></span>
+										</td>
+									{% endif %}
+									<td>{{ message.source.username }}</td>
+									<td>{{ message.added_on|date:"d.m.Y" }}</td>
+								</tr>
+							{% empty %}
+								<tr>
+									<td colspan='4'>Сообщений нет.</td>
+								</tr>
+							{% endfor %}
+						</table>
+						<table class="footer" cellspacing="0">
+							<tr>
+								<td width="40"></td>
+								<td width="380">Показаны письма с 1 по {{ messages.count|default:0 }}
+									из {{ messages.count|default:0 }}</td>
+								<td width="290"></td>
+								<td></td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="line"></div>
+	<div id="footer">
+		<div class="copyright">Все права защищены 2010</div>
+		<div class="author">
+
+
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="/scripts/scripts.js"></script>
+</body>
+</html>

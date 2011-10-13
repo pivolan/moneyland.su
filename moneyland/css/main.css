@@ -1,0 +1,383 @@
+@charset "windows-1251";
+/* CSS Document */
+body {
+	margin:0; padding:0;
+	font: 100% Arial, Helvetica, sans-serif;
+	text-align: left;
+	color: #C97135;
+	font-size:12px;
+	background:url(../images/fon.gif) repeat #FDE7B3;}
+
+#container {
+	width:950px; 
+	margin:0 auto;
+	background:url(../images/GSP.jpg) #FDF0D1 top no-repeat;}
+
+#header_right {
+	float:right; 
+	width:450px;}
+
+#header_left {
+	float:left; 
+	width:468px; 
+	padding-left:22px; 
+	height:322px;}
+
+#lang {
+	height: 14px;
+	padding:18px 0 0 291px;
+	font-size:0px;}
+
+#lang ul {
+	height: 14px;
+	width: 124px;
+	list-style:none;
+	margin: 0;
+	padding: 0;}
+
+#lang ul li {
+	float:left;}
+
+#lang ul li a {
+	height: 14px;
+	display:block;
+	background: url(../images/lang.gif) no-repeat;}
+
+#lang ul li.ru a {width: 53px;}
+#lang ul li.en a {width: 51px; background-position: -53px 0px; margin-left: 20px;}
+
+#flash {
+	width:435px;
+	height:270px;
+	background:url(../images/flash.png) top;
+	margin-top:13px;}
+
+.logo {
+	background:url(../images/logo.png) no-repeat; 
+	width:220px; 
+	height:60px; 
+	margin:18px 0 0 10px;}
+
+.welcome {
+	margin-top:220px;
+	height:25px;}
+
+.welcome div{
+	float:left;
+	margin-right:15px;}
+	
+.welcome div.enter_exit{
+	float:right;
+	margin:0 0 0 20px;}
+
+#login, #password {
+	font-size:12px; 
+	font-family:Arial, Helvetica, sans-serif;
+	font-style:italic; 
+	color:#C97135; 
+	height:16px; 
+	width:107px; 
+	border-width:0; 
+	background:url(../images/logpass.gif) left no-repeat; 
+	line-height:16px; 
+	text-indent:5px; 
+	float:left; 
+	padding:0;}
+
+#login {
+	margin-left:3px;}
+
+#password {
+	margin-left:13px;}
+
+#autorization {
+	width:465px; margin-top:182px; height:20px;}
+
+a {color:#C97135;}
+a:hover {text-decoration:none;}
+
+.enter {
+	margin:0 0 0 13px;
+	float:left;}
+
+.registration {
+	margin:20px 0 0 10px; 
+	width:456px; 
+	height:32px; 
+	position:absolute;
+	margin-left:0;
+	top:261px;}
+
+.registration a:hover {
+	background-position:0 -32px;}
+
+.registration a:active {
+	background-position:0 -64px;}
+
+#navigation {
+	height:76px; margin-left:21px; background:url(../images/nav_fon.png) top no-repeat; width:906px; clear:both; text-align:left;}
+
+#navigation div {
+	background:url(../images/nav_under.png); width:906px; height:31px; margin:0 auto; clear:both;}
+
+#navigation ul {
+	height:44px; width:906px; list-style:none; margin:0; padding:0;}
+
+#navigation ul li {
+	float:left;}
+	
+#navigation ul li a {
+	outline:none;}
+	
+#navigation ul li.general a{width:148px;}
+#navigation ul li.marketing a{width:147px; background-position:-148px 0;}
+#navigation ul li.rules a{width:147px; background-position:-295px 0;}
+#navigation ul li.questions a{width:147px; background-position:-442px 0;}
+#navigation ul li.forum a{width:147px; background-position:-589px 0;}
+#navigation ul li.mission a{width:147px; background-position:-736px 0;}
+
+#navigation ul li.general a:hover{width:148px; background-position:0 -41px;}
+#navigation ul li.marketing a:hover{width:147px; background-position:-148px -41px;}
+#navigation ul li.rules a:hover{width:147px; background-position:-295px -41px;}
+#navigation ul li.questions a:hover{width:147px; background-position:-442px -41px;}
+#navigation ul li.forum a:hover{width:147px; background-position:-589px -41px;}
+#navigation ul li.mission a:hover{width:147px; background-position:-736px -41px;}
+
+#navigation ul li.general a:active{width:148px; background-position:0 -82px;}
+#navigation ul li.marketing a:active{width:147px; background-position:-148px -82px;}
+#navigation ul li.rules a:active{width:147px; background-position:-295px -82px;}
+#navigation ul li.questions a:active{width:147px; background-position:-442px -82px;}
+#navigation ul li.forum a:active{width:147px; background-position:-589px -82px;}
+#navigation ul li.mission a:active{width:147px; background-position:-736px -82px;}
+
+#navigation ul li.general a.active{width:148px; background-position:0 -41px; cursor:pointer;}
+#navigation ul li.marketing a.active{width:147px; background-position:-148px -41px; cursor:pointer;}
+#navigation ul li.rules a.active{width:147px; background-position:-295px -41px; cursor:pointer;}
+#navigation ul li.questions a.active{width:147px; background-position:-442px -41px; cursor:pointer;}
+#navigation ul li.forum a.active{width:147px; background-position:-589px -41px; cursor:pointer;}
+#navigation ul li.mission a.active{width:147px; background-position:-736px -41px; cursor:pointer;}
+
+#content {
+	padding-bottom:17px;}
+
+.sidebar {
+	float:left; 
+	width:301px; 
+	padding-left:21px;}
+
+.main_sidebar {
+	padding:0 11px;}
+
+.marketing_sidebar {
+	background-color:#FDECC4;
+	padding:3px 0 10px 11px;}
+
+.marketing_sidebar h1{
+	margin-left:-3px;}
+
+.main {
+	margin-left:330px; 
+	width:593px;}
+
+.main_marketing {
+	margin-left:340px;
+	width:583px;
+	padding-top:3px;}
+
+.main_faq {
+	margin-left:30px;
+	width:893px;
+	padding-top:3px;}
+
+.main_faq p{
+	color:#723214;}
+
+.main_faq h2{
+	color:#723214; font-weight:bold;}
+
+.main_faq .question{
+	background:url(../images/question.gif) left no-repeat; padding-left:30px; font-size:18px; line-height:30px; margin:30px 0;}
+
+.main_faq .warning{
+	background:url(../images/warning.gif) left no-repeat; height:35px; padding:5px 0 5px 25px; margin-left:25px;}
+
+.main_faq .warning p{
+	font-size:14px; margin:0;}
+
+.main_faq ol{
+	color:#723214;}
+
+.main p, .main_marketing p {
+	margin:8px 0; padding:0; color:#723214; line-height:18px;}
+
+.main_marketing span {
+	font-size:14px;
+	font-style:italic;}
+
+.photo {
+	margin:2px 0 12px;}
+
+.littlephoto {
+	float:left; margin-right:10px;}
+
+h1, h2 {
+	font-size:18px;
+	line-height:22px;
+	font-weight:normal;
+	margin:0;
+	padding:0;}
+
+h2 {
+	font-size:16px;
+	margin:10px 0 7px;}
+
+.wm h2, .yad h2, .liqpay h2 {
+	margin:0;}
+
+h3 {
+	margin:0;
+	font-size:14px;}
+
+.news, .paysystems {
+	margin: 25px 0 0;}
+	
+.paysystems {
+	padding-right:5px;}
+
+.paysystems p span {
+	font-weight:bold;
+	color: #C97135;
+	font-size:12px;}
+
+p.plus {
+	text-indent:20px;
+	background:url(../images/li.gif) top left no-repeat;}
+
+p.rules {
+	margin:10px 0 10px 20px;}
+
+p.ins {
+	margin:0 0 0 40px;}
+	
+.marketing_sidebar p {
+	margin:7px 0; padding-right:8px; color:#723214; line-height:16px;}
+
+.marketing_sidebar span{
+	font-size:14px;}
+
+.news p {
+	margin:3px 0 17px; padding:0; color:#723214; line-height:16px;}
+
+.date {
+	background:url(../images/date.png); width:63px; height:46px; float:left; margin:0 5px 2px 0;}
+
+.month {
+	height:12px; text-align:center; color:#FEFEFE; font-size:9px; padding-top:3px;}
+
+.day {
+	height:31px; text-align:center; font-size:28px; line-height:28px; color:#000;}
+
+.rightside {
+	float:right;
+	width:283px;}
+
+table.statistics {
+	color:#723214;
+	width:100%;
+	border-collapse: collapse;
+	margin:4px 0 14px;
+	vertical-align:middle;}
+
+table.statistics td {
+	padding:0 0 0 14px;
+	height:27px;}
+
+.odd {
+	background-color:#FCD873;}
+
+.even {
+	background-color:#FFF6A7;}
+
+#content ul {
+	padding:0 0 0 20px; list-style-image:url(../images/li.gif);}
+
+#content ul.question {
+	margin:3px 0 10px;}
+
+#content ul.answer {
+	margin:7px 0 10px;}
+
+#content ul.question li, ul.answer li {
+	font-size:14px; line-height:25px; color:#723214;}
+
+.line {
+	clear:both; height:2px; background-color:#FFF; font-size:0;}
+
+#footer {
+	height:68px;
+	background:url(../images/footer.png) repeat-x;
+	padding:0 22px;}
+
+.copyright {
+	float:left;
+	font-size:10px;
+	font-style:italic;
+	color:#723214;
+	margin-top:20px;}
+
+.author {
+	text-align:right;
+	float:right;
+	font-size:10px;
+	font-style:italic;
+	color:#723214;
+	margin-top:10px;
+	line-height:24px;}
+
+.author strong {
+	font-size:12px;}
+
+.warning_one, .warning_two, .warning_three {
+	background:url(../images/warning.gif) left no-repeat; height:37px; padding:4px 0 4px 25px; margin-left:15px;}
+
+.warning_two {
+	height:56px; padding-top:6px;}
+
+.warning_three {
+	height:30px; padding-top:14px; margin:15px 0 15px 15px; }
+
+.warning_three p span {
+	font-style:normal;
+	font-weight:bold;}
+
+.warning_one p, .warning_two p, .warning_three p{
+	margin:0;
+	padding:0;}
+
+.wm, .yad, .liqpay {
+	margin:10px 0 3px; text-align:right; padding:10px; height:26px;}
+
+.wm {
+	background:url(../images/WM.gif) left no-repeat;}
+
+.yad {
+	background:url(../images/YaD.gif) left no-repeat;}
+
+.liqpay {
+	background:url(../images/liqpay.gif) left no-repeat; height:17px;}
+
+b.nobr {
+	white-space:nowrap;
+	font-weight:normal;
+	color:#723214;
+	margin:0; padding:0;
+	text-indent:0;}
+	
+div.both {
+	clear:both;}	
+
+div.errors{
+	position:absolute;
+	color:red;
+	margin-top:162px;
+	margin-left:10px;}

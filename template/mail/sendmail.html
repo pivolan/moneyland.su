@@ -1,0 +1,9 @@
+{% if title %}
+	Сообщение от участника MoneyLand {{ message.source.first_name }}, Логин{{ message.source.username }}
+{% endif %}
+{% if body %}
+	Участник по имени{{ message.source.first_name }} {{ message.source.username }} написал вам:
+	Тема: {{ message.title }}
+	Сообщение: {{ message.textmail }}
+	Ответить участнику вы можете из личного кабинета http://www.moneyland.su/user/mail.html
+{% endif %}

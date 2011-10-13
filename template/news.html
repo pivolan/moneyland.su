@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% block title %}
+	<title> Новости </title>
+{% endblock title %}
+{% block auth %}
+{% endblock auth %}
+{% block navigation %}
+	<div id="navigation">
+		<ul>
+			<li class="general"><a title="главная" href="/"></a></li>
+			<li class="marketing"><a href="/marketing.html" title="маркетинг"></a></li>
+			<li class="rules"><a href="/rules.html" title="правила"></a></li>
+			<li class="questions"><a href="/faq.html" title="вопросы"></a></li>
+			<li class="forum"><a href="/" title="форум"></a></li>
+			<li class="mission"><a href="/services.html" title="сервисы"></a></li>
+			<li class="article"><a href="/article.html" title="статьи"></a></li>
+		</ul>
+		<div></div>
+	</div>
+{% endblock navigation %}
+{% block main %}
+	<div class="main">
+		<h1>{{ new.title }}</h1>
+
+		<p>{{ new.content }}</p>
+
+		<div class="author">{{ new.added_on|date:"d F Y" }}</div>
+	</div>
+{% endblock main %}

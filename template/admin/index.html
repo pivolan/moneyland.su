@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+		"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title>Админка</title>
+</head>
+<body>
+<a href="{{ url }}">Login|logout</a>
+{% for user in users %}
+	<p><a href="/admin/edit/{{ user.key.id }}">{{ user.key.id }}:{{ user.username }} {{ user.first_name }}</a>
+		{% for child in user.children %}
+			{{ child.key.id }}:{{ child.username }} |
+		{% endfor %}
+	</p>
+{% endfor %}
+</body>
+</html>

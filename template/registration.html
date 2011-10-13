@@ -1,0 +1,159 @@
+{% extends "news.html" %}
+{% load i18n %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="/css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/personal.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/rus.css"/>
+	<LINK REL="SHORTCUT ICON" HREF="/images/favicon.ico">
+
+	<!--[if lte IE 6]>
+		<link href="/css/ie.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+{% endblock css %}
+{% block scripts %}
+	<script type="text/javascript" src="/scripts/scripts_rus.js"></script>
+	<script type="text/javascript" src="/scripts/jquery.js"></script>
+	<script src="/scripts/swfobject_modified.js" type="text/javascript"></script>
+{% endblock scripts %}
+{% block title %}
+	<title>Регистрация</title>
+{% endblock title %}
+{% block content %}
+	<div id="personal_content">
+		<div>
+			<div class="regbordercontent">
+				<div class="profile_content">
+					<h1>Регистрация нового партнера</h1>
+
+					<p>{{ mem }}</p>
+
+					<p>Заполните форму, чтобы зарегистрироваться. Поля, отмеченные *, являются обязательными для
+						заполнения.<br/>Поле E-mail является обязательным для заполнения!<br/>Вы регистрируетесь в
+						структуре куратора с логином: <strong><em>{{ parent.username }}</em></strong> и именем: <strong><em>{{ parent.first_name }}</em></strong>
+					</p>
+
+					<p>{{ form.parents.errors }}</p>
+
+					<form id="profile" name="profile" action="" method="POST">
+						<table cellspacing="0" width="100%">
+							<tr>
+								<td colspan="3"><h1>Общие данные:</h1></td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170"><span>*</span>Псевдоним:</td>
+								<td width="310">{{ form.username }}</td>
+								<td id='td_username'>{{ form.username.errors }}</td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170">
+									<div style="line-height:27px;">Проверка псевдонима</div>
+								</td>
+								<td width="310">
+									<div class="checkup"
+										 onmousedown="this.style.background = 'url(/images/checkup.png) left bottom';"
+										 onclick="checkLogin(); this.style.background = 'url(/images/checkup.png) left top';"
+										 onmouseup="this.style.background = 'url(/images/checkup.png) left -27px'"
+										 onmouseover="this.style.background = 'url(/images/checkup.png) left -27px'"
+										 onmouseout="this.style.background = 'url(/images/checkup.png) left top'"></div>
+								</td>
+								<td></td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170"><span>*</span>Имя:</td>
+								<td width="310">{{ form.first_name }}</td>
+								<td>{{ form.first_name.errors }}<p>Имена используются для вежливого обращения между
+								членами команды, поэтому оно должно быть реальным и состоящим из символов кириллицы.</p>
+								</td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170"><span>*</span>Пароль:</td>
+								<td width="310">{{ form.password }}</td>
+								<td>{{ form.password.errors }}<p>Пароль доступа в кабинет должен быть длиной от 6 до 16
+								символов и состоять из цифр или символов латинского алфавита с учетом регистра. При
+								необходимости пароль можно сменить в личном кабинете.</p></td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170"><span>*</span>Подтвердите пароль:</td>
+								<td width="310">{{ form.confirm }}</td>
+								<td>{{ form.confirm.errors }}</td>
+							</tr>
+							<tr>
+								<td colspan="3"></td>
+							</tr>
+							<tr>
+								<td colspan="3"><h1>Контактная информация:</h1></td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170"><span>*</span>E-mail:</td>
+								<td width="310">{{ form.email }}</td>
+								<td>{{ form.email.errors }}<p>E-mail адрес должен быть реальным.</p></td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170">Логин Skype:</td>
+								<td width="310">{{ form.skype }}</td>
+								<td>{{ form.skype.errors }}<p>Skype &mdash; удобное средство для онлайн общения. Вы
+								можете загрузить <a href="http://www.skype.com/intl/ru/home">здесь</a>.</p></td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170"><span>*</span>Номер ICQ:</td>
+								<td width="310">{{ form.icq }}</td>
+								<td
+								{{ form.icq.errors }}<p>ICQ &mdash; удобное средство для онлайн общения. Вы можете
+								загрузить <a href="http://icq.com/ru.html">здесь</a>.</p></td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170"><span>*</span>Телефон:</td>
+								<td width="310">{{ form.phone }}</td>
+								<td>{{ form.phone.errors }}<p>Номер телефона</p></td>
+							</tr>
+							<tr>
+								<td colspan="3"></td>
+							</tr>
+							<tr>
+								<td colspan="3"><h1>Номера кошельков в платёжных системах:</h1><span> Укажите хотябы один номер кошелька</span>{{ form.wme.errors }}
+								</td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170"><span>*</span>WME кошелек:</td>
+								<td width="310">{{ form.wme }}</td>
+								<td><p>Webmoney евро-кошелек. Пример: E123456789123</p></td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170"><span>*</span>Яндекс.Деньги кошелек:</td>
+								<td width="310">{{ form.yandexmoney }}</td>
+								<td><p>Яндекс.Деньги кошелек. Пример: 12345678912345</p></td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170"><span>*</span>LiqPAY - номер счета:</td>
+								<td width="310">{{ form.liqpay }}</td>
+								<td><p>LiqPAY &mdash; номер счета. Пример: +712345678912</p></td>
+							</tr>
+						</table>
+						<h1>Внимание! Регистрируясь в проекте, Вы соглашаетесь беспрекословно выполнять следующие
+							обязательства, опубликованные по адресу <a href="/rules.html">http://moneyland.su</a></h1>
+						{{ form.terms.errors }}
+						{{ form.terms }}
+						<input type='hidden' value="{{parent.key}}" name='parents'/>
+
+						<div id="foncheckbox">
+							<div class="agree" onclick="SwitchImage();"></div>
+							<div class="condition">Я полностью принимаю договор команды, опубликованный по адресу <a
+									href="rules.html">http://moneyland.su</a></div>
+							<div class="save"
+								 onmousedown="this.style.background = 'url(/images/savecancel.png) left bottom';"
+								 onclick="document.profile.submit(); this.style.background = 'url(/images/savecancel.png) left top';"
+								 onmouseover="this.style.background = 'url(/images/savecancel.png) left -32px'"
+								 onmouseout="this.style.background = 'url(/images/savecancel.png) left top'"></div>
+							<div class="clear"
+								 onmousedown="this.style.background = 'url(/images/savecancel.png) -161px bottom';"
+								 onclick="clearform(); this.style.background = 'url(/images/savecancel.png) -161px -32px';"
+								 onmouseover="this.style.background = 'url(/images/savecancel.png) -161px -32px'"
+								 onmouseout="this.style.background = 'url(/images/savecancel.png) -161px top'"></div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock content %}

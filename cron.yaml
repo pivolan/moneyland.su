@@ -1,0 +1,8 @@
+cron:
+- description: daily summary job
+  url: /tasks/summary/
+  schedule: every 1 days
+
+- description: day stat updater
+  url: /cronjobs
+  schedule: every 6 hours

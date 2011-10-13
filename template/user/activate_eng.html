@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="css/personal.css"/>
+	<link rel="stylesheet" type="text/css" href="css/eng.css"/>
+	<!--[if lte IE 6]>
+		<link href="css/ie.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+	<script type="text/javascript" src="scripts/scripts.js"></script>
+	<title>Активация заказов</title>
+</head>
+
+<body>
+<div id="container">
+	<div id="header_right">
+		<div id="lang">
+			<ul>
+				<li class="ru"><a href="activate.html" title="русский"></a></li>
+				<li class="en"><a href="" title="english"></a></li>
+			</ul>
+		</div>
+		<div id="flash"></div>
+	</div>
+	<div id="header_left">
+		<div class="logo"></div>
+		<div class="welcome">
+			<div>Добро пожаловать <em>Nazim</em></div>
+			<div><a href="welcome_eng.html">Выход</a></div>
+		</div>
+		<!--<form id="autorization" name="autorization" method="post" action="http://ruswebmasters.ru">
+			<input type="text" id="login" value="Логин" onfocus="setlog();" onblur="setlog();" />
+			<div id="changepass"><input type="text" id="password" value="Пароль" onfocus="setpass();" onblur="unsetpass();" /></div>
+			<div class="entersystem" onclick="document.autorization.submit(); this.style.background = 'url(images/entersystem.gif) top'" onmouseover="this.style.background = 'url(images/entersystem.gif) 0 -16px'" onmouseout="this.style.background = 'url(images/entersystem.gif) top'"></div>
+			<div class="enter"><a href="/">Напомнить пароль</a></div>
+		</form>
+        <div class="registration"><a href="/"></a></div>-->
+	</div>
+	<div id="navigation">
+		<ul>
+			<li class="general"><a href="index_eng.html" title="главная"></a></li>
+			<li class="marketing"><a href="marketing_eng.html" title="маркетинг"></a></li>
+			<li class="rules"><a href="rules_eng.html" title="правила"></a></li>
+			<li class="questions"><a href="faq_eng.html" title="вопросы"></a></li>
+			<li class="forum"><a href="/" title="форум"></a></li>
+			<li class="mission"><a href="/services.html" title="сервисы"></a></li>
+			<li class="article"><a href="/article.html" title="статьи"></a></li>
+		</ul>
+		<div></div>
+	</div>
+	<div id="personal_content">
+		<div id="personal_nav">
+			<ul>
+				<li class="status"><a class="active"></a></li>
+				<li class="profile"><a href="profile_eng.html"></a></li>
+				<li class="partners"><a href="partners_eng.html"></a></li>
+				<li class="mail"><a href="mail_eng.html"></a></li>
+				<li class="books"><a href="books1_eng.html"></a></li>
+			</ul>
+		</div>
+		<div style="padding-left:29px">
+			<div class="bordercontent">
+				<div class="mail_content">
+					<h1>Order activation</h1>
+
+					<div class="line"></div>
+					<h3>Activate orders 1 level</h3>
+
+					<form id="mail" name="activate" method="post" enctype="multipart/form-data" action="proverka.php">
+						<table cellspacing="0" class="main_mail">
+							<tr>
+								<th width="13"></th>
+								<th width="104"><span>Partner</span></th>
+								<th width="117">Security code</th>
+								<th width="117">Payment system</th>
+								<th width="117">Order date</th>
+								<th width="66">Line</th>
+								<th width="145">Activation</th>
+								<th>Cancel</th>
+							</tr>
+							<tr>
+								<td></td>
+								<td><span>Илья</span></td>
+								<td>8888</td>
+								<td>WebMoney</td>
+								<td>2009-06-08</td>
+								<td>1</td>
+								<td><input type="submit" class="activate" style="border:0;" value=""
+										   onmouseover="this.style.background = 'url(images/activate_eng.gif) bottom'"
+										   onmouseout="this.style.background = 'url(images/activate_eng.gif) top'"/>
+								</td>
+								<td><input type="submit" class="deactivate" style="border:0;" value=""
+										   onmouseover="this.style.background = 'url(images/deactivate_eng.gif) bottom'"
+										   onmouseout="this.style.background = 'url(images/deactivate_eng.gif) top'"/>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><span>Михаил</span></td>
+								<td>555</td>
+								<td>WebMoney</td>
+								<td>2009-06-08</td>
+								<td>2</td>
+								<td><input type="submit" class="activate" style="border:0;" value=""
+										   onmouseover="this.style.background = 'url(images/activate_eng.gif) bottom'"
+										   onmouseout="this.style.background = 'url(images/activate_eng.gif) top'"/>
+								</td>
+								<td><input type="submit" class="deactivate" style="border:0;" value=""
+										   onmouseover="this.style.background = 'url(images/deactivate_eng.gif) bottom'"
+										   onmouseout="this.style.background = 'url(images/deactivate_eng.gif) top'"/>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><span>Инна</span></td>
+								<td>231</td>
+								<td>WebMoney</td>
+								<td>2009-06-08</td>
+								<td>3</td>
+								<td><input type="submit" class="activate" style="border:0;" value=""
+										   onmouseover="this.style.background = 'url(images/activate_eng.gif) bottom'"
+										   onmouseout="this.style.background = 'url(images/activate_eng.gif) top'"/>
+								</td>
+								<td><input type="submit" class="deactivate" style="border:0;" value=""
+										   onmouseover="this.style.background = 'url(images/deactivate_eng.gif) bottom'"
+										   onmouseout="this.style.background = 'url(images/deactivate_eng.gif) top'"/>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><span>Валентин</span></td>
+								<td>548</td>
+								<td>WebMoney</td>
+								<td>2009-06-08</td>
+								<td>1</td>
+								<td><input type="submit" class="activate" style="border:0;" value=""
+										   onmouseover="this.style.background = 'url(images/activate_eng.gif) bottom'"
+										   onmouseout="this.style.background = 'url(images/activate_eng.gif) top'"/>
+								</td>
+								<td><input type="submit" class="deactivate" style="border:0;" value=""
+										   onmouseover="this.style.background = 'url(images/deactivate_eng.gif) bottom'"
+										   onmouseout="this.style.background = 'url(images/deactivate_eng.gif) top'"/>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><span>Гавхар</span></td>
+								<td>546</td>
+								<td>WebMoney</td>
+								<td>2009-06-08</td>
+								<td>1</td>
+								<td><input type="submit" class="activate" style="border:0;" value=""
+										   onmouseover="this.style.background = 'url(images/activate_eng.gif) bottom'"
+										   onmouseout="this.style.background = 'url(images/activate_eng.gif) top'"/>
+								</td>
+								<td><input type="submit" class="deactivate" style="border:0;" value=""
+										   onmouseover="this.style.background = 'url(images/deactivate_eng.gif) bottom'"
+										   onmouseout="this.style.background = 'url(images/deactivate_eng.gif) top'"/>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><span>Сергей</span></td>
+								<td>65748</td>
+								<td>WebMoney</td>
+								<td>2009-06-08</td>
+								<td>2</td>
+								<td><input type="submit" class="activate" style="border:0;" value=""
+										   onmouseover="this.style.background = 'url(images/activate_eng.gif) bottom'"
+										   onmouseout="this.style.background = 'url(images/activate_eng.gif) top'"/>
+								</td>
+								<td><input type="submit" class="deactivate" style="border:0;" value=""
+										   onmouseover="this.style.background = 'url(images/deactivate_eng.gif) bottom'"
+										   onmouseout="this.style.background = 'url(images/deactivate_eng.gif) top'"/>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><span>Владимир</span></td>
+								<td>2156</td>
+								<td>WebMoney</td>
+								<td>2009-06-08</td>
+								<td>3</td>
+								<td><input type="submit" class="activate" style="border:0;" value=""
+										   onmouseover="this.style.background = 'url(images/activate_eng.gif) bottom'"
+										   onmouseout="this.style.background = 'url(images/activate_eng.gif) top'"/>
+								</td>
+								<td><input type="submit" class="deactivate" style="border:0;" value=""
+										   onmouseover="this.style.background = 'url(images/deactivate_eng.gif) bottom'"
+										   onmouseout="this.style.background = 'url(images/deactivate_eng.gif) top'"/>
+								</td>
+							</tr>
+						</table>
+						<table class="activate_footer" cellspacing="0">
+							<tr>
+								<td height="15"></td>
+							</tr>
+						</table>
+					</form>
+					<a href="status_eng.html" style="margin-left:10px;">Back</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="line"></div>
+	<div id="footer">
+		<div class="copyright">All rights reserved 2009</div>
+		<div class="author">
+
+			Website template by <a href="http://www.ruswebmasters.ru" target="_blank"><strong><font
+				color="#FFFFCC">R</font><font color="#0066FF">U</font><font color="#FF0000">S</font>WebMasters</strong></a>
+		</div>
+	</div>
+</div>
+</body>
+</html>

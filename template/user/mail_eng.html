@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="css/personal.css"/>
+	<link rel="stylesheet" type="text/css" href="css/eng.css"/>
+	<!--[if lte IE 6]>
+		<link href="css/ie.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+	<script type="text/javascript" src="scripts/scripts.js"></script>
+	<title>Почта</title>
+</head>
+
+<body>
+<div id="container">
+	<div id="header_right">
+		<div id="lang">
+			<ul>
+				<li class="ru"><a href="mail.html" title="русский"></a></li>
+				<li class="en"><a href="" title="english"></a></li>
+			</ul>
+		</div>
+		<div id="flash"></div>
+	</div>
+	<div id="header_left">
+		<div class="logo"></div>
+		<div class="welcome">
+			<div>Good day <em>Nazim</em></div>
+			<div><a href="welcome_eng.html">Sign out</a></div>
+		</div>
+		<!--<form id="autorization" name="autorization" method="post" action="http://ruswebmasters.ru">
+			<input type="text" id="login" value="Логин" onfocus="setlog();" onblur="setlog();" />
+			<div id="changepass"><input type="text" id="password" value="Пароль" onfocus="setpass();" onblur="unsetpass();" /></div>
+			<div class="entersystem" onclick="document.autorization.submit(); this.style.background = 'url(images/entersystem.gif) top'" onmouseover="this.style.background = 'url(images/entersystem.gif) 0 -16px'" onmouseout="this.style.background = 'url(images/entersystem.gif) top'"></div>
+			<div class="enter"><a href="/">Напомнить пароль</a></div>
+		</form>
+        <div class="registration"><a href="/"></a></div>-->
+	</div>
+	<div id="navigation">
+		<ul>
+			<li class="general"><a href="index_eng.html" title="main page"></a></li>
+			<li class="marketing"><a href="marketing_eng.html" title="marketing"></a></li>
+			<li class="rules"><a href="rules_eng.html" title="rules"></a></li>
+			<li class="questions"><a href="faq_eng.html" title="questions"></a></li>
+			<li class="forum"><a href="/" title="forum"></a></li>
+			<li class="mission"><a href="/" title="mission"></a></li>
+		</ul>
+		<div></div>
+	</div>
+	<div id="personal_content">
+		<div id="personal_nav">
+			<ul>
+				<li class="status"><a href="status_eng.html" title="status"></a></li>
+				<li class="profile"><a href="profile_eng.html" title="profile"></a></li>
+				<li class="partners"><a href="partners_eng.html" title="partners"></a></li>
+				<li class="mail"><a class="active" title="post service"></a></li>
+				<li class="books"><a href="books1_eng.html" title="books"></a></li>
+			</ul>
+		</div>
+		<div style="padding-left:29px">
+			<div class="bordercontent">
+				<div class="mail_content">
+					<h1>Private e-mail</h1>
+
+					<h2><a href="mail_eng.html">Received messages</a> | <a href="/">Sent messages</a> | <a
+							href="sentmail_eng.html">Send a message</a></h2>
+
+					<div class="line"></div>
+					<h3>Received messages</h3>
+
+					<form id="mail" name="mail" action="#">
+						<div class="delselected"
+							 onclick="document.mail.submit(); this.style.background = 'url(images/delselected_eng.gif) top'"
+							 onmouseover="this.style.background = 'url(images/delselected_eng.gif) bottom'"
+							 onmouseout="this.style.background = 'url(images/delselected_eng.gif) top'"></div>
+						<table cellspacing="0" class="main_mail">
+							<tr>
+								<th width="40">
+									<input id="allcheckbox" name="allcheckbox" type="checkbox" style="display:none;"/>
+
+									<div id="fonallcheck" onclick="AllSel();"></div>
+								</th>
+								<th><span>Subject</span></th>
+								<th width="200">From</th>
+								<th width="120">Date</th>
+							</tr>
+							<tr>
+								<td>
+									<input id="checkbox1" name="checkbox1" type="checkbox" style="display:none;"/>
+
+									<div id="foncheck" onclick="SelCheck(1, this);"></div>
+								</td>
+								<td><span><a href="/">Очень много денег!!!</a></span></td>
+								<td>Заказчик</td>
+								<td>01.09.09</td>
+							</tr>
+							<tr>
+								<td>
+									<input id="checkbox2" name="checkbox2" type="checkbox" style="display:none;"/>
+
+									<div id="foncheck" onclick="SelCheck(2, this);"></div>
+								</td>
+								<td><span><a href="/">Очень много денег!!!</a></span></td>
+								<td>Заказчик</td>
+								<td>01.09.09</td>
+							</tr>
+							<tr>
+								<td>
+									<input id="checkbox3" name="checkbox3" type="checkbox" style="display:none;"/>
+
+									<div id="foncheck" onclick="SelCheck(3, this);"></div>
+								</td>
+								<td><span><a href="/">Очень много денег!!!</a></span></td>
+								<td>Заказчик</td>
+								<td>01.09.09</td>
+							</tr>
+							<tr>
+								<td>
+									<input id="checkbox4" name="checkbox4" type="checkbox" style="display:none;"/>
+
+									<div id="foncheck" onclick="SelCheck(4, this);"></div>
+								</td>
+								<td><span><a href="/">Очень много денег!!!</a></span></td>
+								<td>Заказчик</td>
+								<td>01.09.09</td>
+							</tr>
+							<tr>
+								<td>
+									<input id="checkbox5" name="checkbox5" type="checkbox" style="display:none;"/>
+
+									<div id="foncheck" onclick="SelCheck(5, this);"></div>
+								</td>
+								<td><span><a href="/">Очень много денег!!!</a></span></td>
+								<td>Заказчик</td>
+								<td>01.09.09</td>
+							</tr>
+							<tr>
+								<td>
+									<input id="checkbox6" name="checkbox6" type="checkbox" style="display:none;"/>
+
+									<div id="foncheck" onclick="SelCheck(6, this);"></div>
+								</td>
+								<td><span><a href="/">Очень много денег!!!</a></span></td>
+								<td>Заказчик</td>
+								<td>01.09.09</td>
+							</tr>
+							<tr>
+								<td>
+									<input id="checkbox7" name="checkbox7" type="checkbox" style="display:none;"/>
+
+									<div id="foncheck" onclick="SelCheck(7, this);"></div>
+								</td>
+								<td><span><a href="/">Очень много денег!!!</a></span></td>
+								<td>Заказчик</td>
+								<td>01.09.09</td>
+							</tr>
+							<tr>
+								<td>
+									<input id="checkbox8" name="checkbox8" type="checkbox" style="display:none;"/>
+
+									<div id="foncheck" onclick="SelCheck(8, this);"></div>
+								</td>
+								<td><span><a href="/">Очень много денег!!!</a></span></td>
+								<td>Заказчик</td>
+								<td>01.09.09</td>
+							</tr>
+							<tr>
+								<td>
+									<input id="checkbox9" name="checkbox9" type="checkbox" style="display:none;"/>
+
+									<div id="foncheck" onclick="SelCheck(9, this);"></div>
+								</td>
+								<td><span><a href="/">Очень много денег!!!</a></span></td>
+								<td>Заказчик</td>
+								<td>01.09.09</td>
+							</tr>
+							<tr>
+								<td>
+									<input id="checkbox10" name="checkbox10" type="checkbox" style="display:none;"/>
+
+									<div id="foncheck" onclick="SelCheck(10, this);"></div>
+								</td>
+								<td><span><a href="/">Очень много денег!!!</a></span></td>
+								<td>Заказчик</td>
+								<td>01.09.09</td>
+							</tr>
+							<tr></tr>
+						</table>
+						<table class="footer" cellspacing="0">
+							<tr>
+								<td width="40"></td>
+								<td width="380">Messages 1-1 out of 1</td>
+								<td width="290">Pages:</td>
+								<td>Number 1</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="line"></div>
+	<div id="footer">
+		<div class="copyright">All rights reserved 2009</div>
+		<div class="author">
+
+			Website template by <a href="http://www.ruswebmasters.ru" target="_blank"><strong><font
+				color="#FFFFCC">R</font><font color="#0066FF">U</font><font color="#FF0000">S</font>WebMasters</strong></a>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+/* CSS Document */
+div.logo, .smpl_yellow, .smpl_orange, .smpl_brown, .smpl_none, .bgpl_yellow, .bgpl_orange, .bgpl_brown, .bgpl_none { behavior: url("scripts/iepngfix.htc") }
+.main { margin-left:327px; }
+.main_marketing { margin-left:337px; }
+.profile_content, .mail_content {height:500px;}
+.checkup {margin-left:2px;}
+.sent {margin-left:2px;}
+

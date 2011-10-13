@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" type="text/css" href="/css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/personal.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/rus.css"/>
+	<LINK REL="SHORTCUT ICON" HREF="/images/favicon.ico">
+
+	<!--[if lte IE 6]>
+		<link href="css/ie.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+	<script type="text/javascript" src="/scripts/scripts.js"></script>
+	<title>Информация активности</title>
+</head>
+
+<body>
+<div id="container">
+	<div id="header_right">
+		<div id="lang">
+			<ul>
+				<li class="ru"><a href="" title="русский"></a></li>
+				<li class="en"><a href="activate_eng.html" title="english"></a></li>
+			</ul>
+		</div>
+		<div id="flash"></div>
+	</div>
+	<div id="header_left">
+		<div class="logo"></div>
+		<div class="welcome">
+			<div>Добро пожаловать <em>{{ user.username }}</em></div>
+			<div><a href="/logout/">Выход</a></div>
+		</div>
+		<!--<form id="autorization" name="autorization" method="post" action="http://ruswebmasters.ru">
+			<input type="text" id="login" value="Логин" onfocus="setlog();" onblur="setlog();" />
+			<div id="changepass"><input type="text" id="password" value="Пароль" onfocus="setpass();" onblur="unsetpass();" /></div>
+			<div class="entersystem" onclick="document.autorization.submit(); this.style.background = 'url(/images/entersystem.gif) top'" onmouseover="this.style.background = 'url(/images/entersystem.gif) 0 -16px'" onmouseout="this.style.background = 'url(/images/entersystem.gif) top'"></div>
+			<div class="enter"><a href="/">Напомнить пароль</a></div>
+		</form>
+        <div class="registration"><a href="/"></a></div>-->
+	</div>
+	<div id="navigation">
+		<ul>
+			<li class="general"><a href="/index.html" title="главная"></a></li>
+			<li class="marketing"><a href="/marketing.html" title="маркетинг"></a></li>
+			<li class="rules"><a href="/rules.html" title="правила"></a></li>
+			<li class="questions"><a href="/faq.html" title="вопросы"></a></li>
+			<li class="forum"><a href="/" title="форум"></a></li>
+			<li class="mission"><a href="/services.html" title="сервисы"></a></li>
+			<li class="article"><a href="/article.html" title="статьи"></a></li>
+		</ul>
+		<div></div>
+	</div>
+	<div id="personal_content">
+		<div id="personal_nav">
+			<ul>
+				<li class="status"><a href="/user/status.html"></a></li>
+				<li class="profile"><a href="/user/profile.html"></a></li>
+				<li class="partners"><a href="/user/partners.html"></a></li>
+				<li class="mail"><a href="/user/mail.html"></a></li>
+				<li class="books"><a href="/user/books1.html"></a></li>
+			</ul>
+		</div>
+		<div style="padding-left:29px">
+			<div class="bordercontent">
+				<div class="mail_content">
+					<h1>Лента новостей вашего акаунта</h1>
+
+					<div class="line"></div>
+					<h1> Почта </h1>
+					<table cellspacing="0" class="main_mail">
+						<tbody>
+						<tr>
+							<th width="104">Почта</th>
+							<th width="117">Новые партнеры</th>
+							<th width="117">Неактивные партнеры</th>
+							<th width="117">Партнеры с непрочитанными письмами</th>
+							<th width="117">Партнеры с "висящими" заказами</th>
+						</tr>
+
+						<tr>
+							<td align="center">
+								Новых сообщений: {{ newMessages|default:'0' }}
+								<br><br> Не прочитанных сообщений: {{ unreadInMessages|default:'0' }}
+								<br><br> Не прочитанных получателями: {{ unreadOutMessages|default:'0' }}
+							</td>
+							<td>
+								{% for line in lines %}
+									{% cycle 'Линия 1:' '<br>Линия 2:' '<br/>Линия 3:' %}<br/>
+									{% for partner in line %}
+										<b><a href='/user/partner/{{partner.key.id}}'>{{ partner.username }}</a></b>,
+									{% endfor %}
+								{% endfor %}
+							</td>
+							<td align="center">
+								{% for period in periods %}
+									{% cycle 'Больше трех дней:' '<br><br>Больше недели:' '<br><br>Больше месяца:' %}
+									{% for partner in period %}
+										<br/>
+										<b><a href='/user/partner/{{partner.key.id}}'>{{ partner.username }}</a></b>
+									{% endfor %}
+								{% endfor %}
+							</td>
+							<td>
+								{% for partner in unreads %}
+									<b><a href='/user/partner/{{partner.key.id}}'>{{ partner.username }}</a></b><br/>
+								{% endfor %}
+							</td>
+							<td>
+								{% for partner in withOrders %}
+									<b><a href='/user/partner/{{partner.key.id}}'>{{ partner.username }}</a></b><br/>
+								{% endfor %}
+							</td>
+						</tr>
+						<tr></tr>
+						<tr>
+
+							<td align="center"><a href="/user/mail.html"><h2>К почте</h2></a></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						</tbody>
+					</table>
+
+					<table cellspacing="0" class="activate_footer">
+						<tbody>
+						<tr>
+							<td height="15"></td>
+						</tr>
+						</tbody>
+					</table>
+					<div class="sideleft" style="float:none;">
+						<h1>Новые партнеры</h1>
+						<table cellspacing="0" class="status_level" style="width:800px">
+							<tr class="odd">
+								<th height="40">Линия 1</th>
+								<th>Линия 2</th>
+								<th>Линия 3</th>
+							</tr>
+							{% for num in maximum %}
+								<tr class="{% cycle 'even' 'odd' %}">
+									<td>{{ num }}</td>
+									<td><a href="activate/1">{{ orderscount.0 }}</a></td>
+									<td><a href="activated/1">{{ activeorderscount.0 }}/39</a></td>
+								</tr>
+							{% endfor %}
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="line"></div>
+	<div id="footer">
+		<div class="copyright">Все права защищены 2010</div>
+		<div class="author">
+
+
+		</div>
+	</div>
+</div>
+</body>
+</html>

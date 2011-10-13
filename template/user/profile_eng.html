@@ -1,0 +1,204 @@
+<?php 
+	include('config/config.php');
+	include('classes/users.inc.php');
+	$user=new _Users;
+	if (!$user->isUser())header("location: index.html");
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="css/personal.css"/>
+	<link rel="stylesheet" type="text/css" href="css/eng.css"/>
+	<!--[if lte IE 6]>
+		<link href="css/ie.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+	<script type="text/javascript" src="scripts/scripts.js"></script>
+	<title>Профиль</title>
+</head>
+
+<body>
+<div id="container">
+	<div id="header_right">
+		<div id="lang">
+			<ul>
+				<li class="ru"><a href="profile.html" title="русский"></a></li>
+				<li class="en"><a href="" title="english"></a></li>
+			</ul>
+		</div>
+		<div id="flash"></div>
+	</div>
+	<div id="header_left">
+		<div class="logo"></div>
+		<div class="welcome">
+			<div>Good day <em><?=$user->settings['name'];?></em></div>
+			<div><a href="handler/logout.php">Sign out</a></div>
+		</div>
+		<!--<form id="autorization" name="autorization" action="#">
+			<input type="text" id="login" value="Логин" onfocus="setlog();" onblur="setlog();" />
+			<div id="changepass"><input type="text" id="password" value="Пароль" onfocus="setpass();" onblur="unsetpass();" /></div>
+			<div class="entersystem" onclick="document.autorization.submit(); this.style.background = 'url(images/entersystem.gif) top'" onmouseover="this.style.background = 'url(images/entersystem.gif) 0 -16px'" onmouseout="this.style.background = 'url(images/entersystem.gif) top'"></div>
+			<div class="enter"><a href="/">Напомнить пароль</a></div>
+		</form>
+        <div class="registration"><a href="/"></a></div>-->
+	</div>
+	<div id="navigation">
+		<ul>
+			<li class="general"><a href="index_eng.html" title="main page"></a></li>
+			<li class="marketing"><a href="marketing_eng.html" title="marketing"></a></li>
+			<li class="rules"><a href="rules_eng.html" title="rules"></a></li>
+			<li class="questions"><a href="faq_eng.html" title="questions"></a></li>
+			<li class="forum"><a href="/" title="forum"></a></li>
+			<li class="mission"><a href="/" title="mission"></a></li>
+		</ul>
+		<div></div>
+	</div>
+	<div id="personal_content">
+		<div id="personal_nav">
+			<ul>
+				<li class="status"><a href="status_eng.html" title="status"></a></li>
+				<li class="profile"><a class="active" title="profile"></a></li>
+				<li class="partners"><a href="partners_eng.html" title="partners"></a></li>
+				<li class="mail"><a href="mail_eng.html" title="post service"></a></li>
+				<li class="books"><a href="books1_eng.html" title="books"></a></li>
+			</ul>
+		</div>
+		<div style="padding-left:29px">
+			<div class="bordercontent">
+				<div class="profile_content">
+					<h1>Edit your personal data</h1>
+
+					<p>You can edit your personal data.<br/>Fields marked * are mandatory to fill in.<br/>Field E-mail
+						is mandatory to fill in!</p>
+
+					<form id="profile" name="profile" action="#">
+						<table cellspacing="0" width="100%">
+							<tr>
+								<td colspan="3"><h1>Common data:</h1></td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170"><span>*</span>Nickname:</td>
+								<td width="310"><input name="login" type="text" value="<?=$user->settings['login'];?>"
+													   readonly//>
+								</td>
+								<td></td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170"><span>*</span>Partner`s link:</td>
+								<td width="310"><p>&quot;Your reference link is available at the first level&quot;</p>
+								</td>
+								<td></td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170"><span>*</span>Name:</td>
+								<td width="310"><input name="name" type="text" value="<?=$user->settings['name'];?>"/>
+								</td>
+								<td><p>Names are used for team members polite treatment therefore real names written in
+									Cyrillic script should be used.</p></td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170"><span>*</span>Password:</td>
+								<td width="310"><input name="password" type="password" value=""/></td>
+								<td><p>Personal Office password should be written in Cyrillic script match case and it
+									should consist of a combination (from 6 to 16) of numbers and symbols. You can
+									change your password at your Personal Office.</p></td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170"><span>*</span>Confirm your password:</td>
+								<td width="310"><input name="confirm" type="password" value=""/></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td colspan="3"></td>
+							</tr>
+							<tr>
+								<td colspan="3"><h1>Contact information:</h1></td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170"><span>*</span>E-mail:</td>
+								<td width="310"><input name="email" type="text" value="<?=$user->settings['email'];?>"/>
+								</td>
+								<td><p>E-mail address must be vaild.</p></td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170"><span>*</span>Skype Login:</td>
+								<td width="310"><input name="skype" type="text" value="<?=$user->settings['skype'];?>"/>
+								</td>
+								<td><p>Skype &mdash; is an easy means of on-line communication. You may download <a
+										href="/">here</a>.</p></td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170">ICQ number:</td>
+								<td width="310"><input name="icq" type="text" value="<?=$user->settings['icq'];?>"/>
+								</td>
+								<td><p>ICQ &mdash; is an easy means of on-line communication. You may download <a
+										href="/">here</a>.</p></td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170"><span>*</span>Phone:</td>
+								<td width="310"><input name="phone" type="text" value="<?=$user->settings['phone'];?>"/>
+								</td>
+								<td><p>Phone number</p></td>
+							</tr>
+							<tr>
+								<td colspan="3"></td>
+							</tr>
+							<tr>
+								<td colspan="3"><h1>Electronic wallets numbers in payment systems:</h1></td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170"><span>*</span>WME wallet:</td>
+								<td width="310"><input name="wme" type="text" value="<?=$user->settings['wme'];?>"/>
+								</td>
+								<td><p>WebMoney euro-wallet. Example: E123456789123 </p></td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170"><span>*</span>Yandex.Money wallet:</td>
+								<td width="310"><input name="yandexmoney" type="text"
+													   value="<?=$user->settings['yandexmoney'];?>"/></td>
+								<td><p>Yandex.Money wallet. Example: 12345678912345 </p></td>
+							</tr>
+							<tr style="vertical-align:top;">
+								<td width="170"><span>*</span>LiqPAY - account number:</td>
+								<td width="310"><input name="liqpay" type="text"
+													   value="<?=$user->settings['liqpay'];?>"/></td>
+								<td><p>LiqPAY &mdash; account number. Example: +712345678912 </p></td>
+							</tr>
+						</table>
+						<h1>Attention! To become a project member you must agree with the following obligations <a
+								href="http://moneyland.su">http://moneyland.su</a></h1>
+						<input id="checkbox" name="yes" type="checkbox"/>
+
+						<div id="foncheckbox">
+							<div class="agree" onclick="SwitchImage();"></div>
+							<div class="condition">I accept team agreement, released at <a href="http://moneyland.su">http://moneyland.su</a>
+							</div>
+							<div class="save"
+								 onmousedown="this.style.background = 'url(images/savecancel_eng.png) left bottom';"
+								 onclick="document.profile.submit(); this.style.background = 'url(images/savecancel_eng.png) left top';"
+								 onmouseover="this.style.background = 'url(images/savecancel_eng.png) left -32px'"
+								 onmouseout="this.style.background = 'url(images/savecancel_eng.png) left top'"></div>
+							<div class="clear"
+								 onmousedown="this.style.background = 'url(images/savecancel_eng.png) -161px bottom';"
+								 onclick="clearform(); this.style.background = 'url(images/savecancel_eng.png) -161px -32px';"
+								 onmouseover="this.style.background = 'url(images/savecancel_eng.png) -161px -32px'"
+								 onmouseout="this.style.background = 'url(images/savecancel_eng.png) -161px top'"></div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="line"></div>
+	<div id="footer">
+		<div class="copyright">All rights reserved 2009</div>
+		<div class="author">
+
+			Website template by <a href="http://www.ruswebmasters.ru" target="_blank"><strong><font
+				color="#FFFFCC">R</font><font color="#0066FF">U</font><font color="#FF0000">S</font>WebMasters</strong></a>
+		</div>
+	</div>
+</div>
+</body>
+</html>

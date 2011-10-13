@@ -1,0 +1,297 @@
+{% load i18n %}
+{% block header %}
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+			"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		{% block css %}
+			<link rel="stylesheet" type="text/css" href="/css/main.css"/>
+			<link rel="stylesheet" type="text/css" href="/css/rus.css"/>
+			<LINK REL="SHORTCUT ICON" HREF="/images/favicon.ico">
+			<!--[if lte IE 6]>
+		<link href="css/ie.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+		{% endblock css %}
+		{% block scripts %}
+			<script type="text/javascript" src="/scripts/scripts_rus.js"></script>
+			<script src="/scripts/swfobject_modified.js" type="text/javascript"></script>
+		{% endblock scripts %}
+		{% block keywords %}
+		{% endblock keywords %}
+		{% block title %}
+			<title>Главная</title>
+		{% endblock title %}
+	</head>
+{% endblock header %}
+<body>
+{% block body %}
+	<div id="container">
+	<div id="header_right">
+		<div id="lang">
+			<ul>
+				<li class="ru"><a href="/" title="русский"></a></li>
+				<li class="en"><a href="index_eng.html" title="english"></a></li>
+			</ul>
+		</div>
+		<div id="flash">
+			<object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="435" height="270">
+				<param name="movie" value="http://moneyland.googlecode.com/svn/trunk/country.swf"/>
+				<param name="quality" value="high"/>
+				<param name="wmode" value="opaque"/>
+				<param name="swfversion" value="6.0.65.0"/>
+				<!-- This param tag prompts users with Flash Player 6.0 r65 and higher to download the latest version of Flash Player. Delete it if you don’t want users to see the prompt. -->
+				<param name="expressinstall" value="scripts/expressInstall.swf"/>
+				<!-- Next object tag is for non-IE browsers. So hide it from IE using IECC. -->
+				<!--[if !IE]>-->
+				<object type="application/x-shockwave-flash"
+						data="http://moneyland.googlecode.com/svn/trunk/country.swf" width="435" height="270">
+					<!--<![endif]-->
+					<param name="quality" value="high"/>
+					<param name="wmode" value="opaque"/>
+					<param name="swfversion" value="6.0.65.0"/>
+					<param name="expressinstall" value="scripts/expressInstall.swf"/>
+					<!--[if !IE]>-->
+				</object>
+				<!--<![endif]-->
+			</object>
+		</div>
+	</div>
+	<div id="header_left">
+		<div class="logo"></div>
+		{% block auth %}
+			{% if user.is_authenticated %}
+				<div class="welcome">
+					<div>Добро пожаловать <em>{{ user.username }}</em></div>
+					<div class="enter_exit"><a href="/logout/">Выход</a></div>
+					<div class="enter_exit"><a href="/user/status.html">Вход в личный кабинет</a></div>
+				</div>
+				<div class="errors">{{ error }}</div>
+			{% else %}
+				<div class="errors">{{ form.non_field_errors }}</div>
+				<form id="autorization" name="autorization" method="post" enctype="multipart/form-data" action="/"
+					  onkeypress="kp(event);">
+					<input type="text" id="login" name="username" value="Логин" onfocus="setlog();" onblur="setlog();"/>
+
+					<div id="changepass"><input type="text" id="password" name="password" value="Пароль"
+												onfocus="setpass();" onblur="unsetpass();"/></div>
+					<div class="entersystem"
+						 onclick="document.autorization.submit(); this.style.background = 'url(images/entersystem.gif) top'"
+						 onmouseover="this.style.background = 'url(images/entersystem.gif) 0 -16px'"
+						 onmouseout="this.style.background = 'url(images/entersystem.gif) top'"></div>
+					<div class="enter"><a href="restorepassword.html">Напомнить пароль</a></div>
+				</form>
+				<div class="registration"><a href="registration.html"></a></div>
+			{% endif %}
+		{% endblock auth %}
+	</div>
+	{% block navigation %}
+		<div id="navigation">
+			<ul>
+				<li class="general"><a class="active" title="главная"></a></li>
+				<li class="marketing"><a href="marketing.html" title="маркетинг"></a></li>
+				<li class="rules"><a href="rules.html" title="правила"></a></li>
+				<li class="questions"><a href="faq.html" title="вопросы"></a></li>
+				<li class="forum"><a href="/" title="форум"></a></li>
+				<li class="mission"><a href="/services.html" title="сервисы"></a></li>
+				<li class="article"><a href="/article.html" title="статьи"></a></li>
+			</ul>
+			<div></div>
+		</div>
+	{% endblock navigation %}
+	{% block content %}
+		<div id="content">
+			{% block news %}
+				<div class="sidebar">
+					<div class="main_sidebar">
+						<h1>Последние новости и события</h1>
+						{% for new in news3 %}
+							<div class="news">
+								<div class="date">
+									<div class="month">{{ new.added_on|date:"F" }}</div>
+									<div class="day">{{ new.added_on.day }}</div>
+								</div>
+								<a href="/new/{{new.key.id}}">{{ new.title }}</a>
+
+								<p>{{ new.content|truncatewords:10 }} <b>{{ news2.title }}</b></p>
+							</div>
+						{% endfor %}
+						<div style='color: #72323B; width:240; background:#fff6a7; border: 2px solid #C97135; text-align: center; padding: 150px 5px 180px; margin-top:150px; font-size: 130%;'>
+							<p>Круглосуточная он-лайн поддержка ICQ 617-200-534 <a href='mailto:admin@moneyland.su'>admin@moneyland.su</a>
+							</p>
+
+							<p>Будем рады вам помочь и ответить на любые вопросы, пишите!</p>
+
+						</div>
+					</div>
+				</div>
+			{% endblock news %}
+			{% block main %}
+				<div class="main">
+					<div class="rightside">
+						<h1>Статистика</h1>
+						<table class="statistics">
+							<tr class="odd">
+								<td>Участников всего:</td>
+								<td>{{ countUsers }}</td>
+							</tr>
+							<tr class="even">
+								<td width="187">Первого уровня</td>
+								<td>{{ count1level }}</td>
+							</tr>
+							<tr class="odd">
+								<td>Второго уровня</td>
+								<td>{{ count2level }}</td>
+							</tr>
+							<tr class="even">
+								<td>Новичков за сегодня</td>
+								<td>{{ countNewbies }}</td>
+							</tr>
+							<tr class="odd">
+								<td>Последний участник</td>
+								<td>{{ lastMember }}</td>
+							</tr>
+						</table>
+						<h1>Вы хотите:</h1>
+						<ul class="question">
+							<li>Быть финансово независимым?</li>
+							<li>Иметь больше свободного времени?</li>
+							<li>Не зависеть от начальства на работе?</li>
+							<li>Путешествовать?</li>
+							<li>Общаться с интересными людьми?</li>
+							<li>Изменить образ своей жизни?</li>
+							<li>Улучшить жилищные условия?</li>
+							<li>Погасить свои долги?..</li>
+						</ul>
+					</div>
+					<img class="photo" src="images/foto.jpg"/>
+
+					<h1>Уникальные возможности финансовой поддержки населения</h1>
+					<ul class="answer">
+						<li>Минимальное вложение</li>
+						<li>Быстрый и полный возврат вложения</li>
+						<li>Скорейшее получение дохода</li>
+						<li>Без возрастных ограничений</li>
+						<li>Без специального обучения</li>
+						<li>Никакой продажи товаров</li>
+						<li>Выплата дохода ежедневно</li>
+					</ul>
+					<h2>Если Вы сказали <strong>ДА</strong> хотя бы на пару пунктов, то Этот Проект именно для Вас.</h2>
+
+					<p>Наш проект был создан с одной простой целью &mdash; обеспечить обычного человека интересной и
+						прибыльной работой. Причем у нас нет никаких ограничений по возрасту, полу или социальному
+						статусу. Зарабатывать смогут все без исключения!</p>
+
+					<img class="littlephoto" src="images/little_foto.jpg"/>
+
+					<p>Это наша собственная компьютерная программа, уровни которой мы продаем друг другу. Но она не
+						простая! <strong>Это настоящая денежная машина</strong>, которая сама следит за Вашими доходами.
+						Вы продаете своим клиентам ее части и получаете от этих клиентов чистую прибыль с продаж на Ваш
+						кошелек.</p>
+
+					<p>Вы спросите, кому нужны эти уровни? Да всем участникам! Купив часть программы у своего куратора
+						один раз, участник сможет продавать ее своим партнерам согласно <a href="marketing.html">маркетинг-плана.</a>
+					</p>
+
+					<div class="sideleft1">
+						<table cellspacing="0" class="status_level1">
+							<tr class="odd">
+								<th width="90" height="40">Ваш доход!</th>
+							</tr>
+							<tr class="even">
+								<td width="90">1 уровень <br/> 330 Евро = 13.500 руб</td>
+							</tr>
+							<tr class="odd">
+								<td width="90">2 уровень <br/> 3300 Евро = 135.000 руб</td>
+							</tr>
+							<tr class="even">
+								<td width="90">3 уровень <br/> 34410 Евро = 1.400.000 руб</td>
+							</tr>
+						</table>
+
+					</div>
+					<h2>Взгляните на табличку слева.</h2>
+
+					<p>У Вас возникла масса вопросов и подозрений при виде таких больших цифр?</p>
+
+					<p>Расслабьтесь и вдохните поглубже. Это реальные цифры Вашего дохода в проекте <b>MoneyLand</b>.
+						Любой участник
+						проекта подтвердит Вам, что заработок отдельного участника зависит только от него самого, и в
+						проекте
+						просто физически нет никаких ограничений или препятствий в Вашем финансовом росте. Вы спросите,
+						насколько быстро сможете добиться таких результатов?
+						Ваш успех зависит только от Вас, от того, как быстро Вы пригласите в проект 3-х человек .
+						Согласно нашей
+						статистики найти 3-х человек можно всего лишь за один день. Наверняка три человека найдутся
+						среди Ваших
+						лучших друзей.</p>
+
+					<h2 style='text-align:center'><a href='/images/show_plan.swf'>Посмотрите презентацию нашего проекта
+						MoneyLand</a></h2>
+
+					<p>Что Вы теряете? Все, что нужно для вступления в проект &mdash; это купить первую часть программы
+						за 20&nbsp;евро. <strong>Больше Вы не потратите ни копейки своих денег.</strong></p>
+
+					<p>К MoneyLand присоединяются те, кому нужны деньги, кто хочет изменить свою жизнь к лучшему, кому
+						надоело кормить мошенников хайперов, кто устал торговать товарами, кто накликался за копейки по
+						баннерам, ссылкам, начитался писем. </p>
+
+					<p>Вообщем те, кто понимает, что значит работать на себя, строить свою структуру, свой бизнес</p>
+
+					<h2>Что Вы получаете?</h2>
+
+					<p>Стабильную интересную работу с хорошим доходом, дружную команду партнеров, с которой можете
+						покорять любые МЛМ-проекты, а также превосходный аккаунт на сайте, где Вы будете отслеживать все
+						о Вашем бизнесе или бизнесе любого участника Вашей команды.</p>
+
+					<h1>Начните бизнес сегодня! <a href="registration.html">Создайте свой аккаунт</a> и запустите свою
+						денежную машину!</h1>
+
+					<p>Инструкция по регистрации и работе в MoneyLand, <a
+							href="http://moneyland.googlecode.com/svn/trunk/instrukcia%20.rar"> скачать </a></p>
+				</div>
+			{% endblock main %}
+			<div class="both"></div>
+		</div>
+	{% endblock content %}
+	<div class="line"></div>
+	{% block footer %}
+		<div id="footer">
+			<div class="copyright">Все права защищены 2010</div>
+			<div class="author">
+				<script id="top100Counter" type="text/javascript"
+						src="http://counter.rambler.ru/top100.jcn?2390545"></script>
+				<noscript>
+					<a href="http://top100.rambler.ru/navi/2390545/">
+						<img src="http://counter.rambler.ru/top100.cnt?2390545" alt="Rambler's Top100" border="0"/>
+					</a>
+				</noscript>
+				<a href="http://yandex.ru/cy?base=0&amp;host=www.moneyland.su"><img
+						src="http://www.yandex.ru/cycounter?www.moneyland.su" width="88" height="31"
+						alt="Яндекс цитирования" border="0"/></a>
+				<!--LiveInternet counter-->
+				<script type="text/javascript"><!--
+				document.write("<a href='http://www.liveinternet.ru/click' " +
+						"target=_blank><img src='//counter.yadro.ru/hit?t41.6;r" +
+						escape(document.referrer) + ((typeof(screen) == "undefined") ? "" :
+						";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
+								screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
+						";" + Math.random() +
+						"' alt='' title='LiveInternet' " +
+						"border='0' width='31' height='31'><\/a>")
+				//--></script>
+				<!--/LiveInternet-->
+			</div>
+		</div>
+	{% endblock footer %}
+	</div>
+	<script type="text/javascript">
+		<!--
+		swfobject.registerObject("FlashID");
+		//-->
+	</script>
+	<script type="text/javascript" src="/scripts/scripts.js"></script>
+
+{% endblock body %}
+</body>
+</html>

@@ -1,0 +1,28 @@
+@charset "windows-1251";
+/* CSS Document */
+.warning {
+	background:url(../images/text_fon.gif) no-repeat #FFFFFF; width:501px; height:206px; margin-left:15px; padding:14px 25px 0 60px;}
+
+.warning p {
+	font-size:14px; margin:0 0 14px;}
+	
+h2 {
+	font-size:50px; color:#F00; font-family:'Times New Roman', Times, serif; text-align:center; margin:15px 0 0; text-decoration:underline; font-weight:normal;}	
+	
+#message textarea {
+	height:100px; border:1px solid #C97135; font-size:12px; width:243px; font-family:Arial, Helvetica, sans-serif; margin-bottom:15px;}	
+	
+h3 {
+	font-size:48px; font-weight:bold; color:#F00; font-family:'Times New Roman', Times, serif; margin:0 0 0 15px;}	
+	
+.conf {
+	background:url(../images/konf.jpg) no-repeat; width:245px; height:88px; margin:20px auto 0;}	
+	
+#message input.clear {
+	width:65px; height:15px; background:url(../images/clear.gif) top no-repeat; border:0; cursor:pointer; float:right;}
+	
+#message input.sent {
+	width:74px; height:15px; background:url(../images/send.gif) top no-repeat; border:0; cursor:pointer;}	
+	
+.agree input.sentbook {	
+	width:74px; height:15px; background:url(../images/send.gif) top no-repeat; border:0; cursor:pointer; float:right;}	

@@ -1,0 +1,7 @@
+{% if title %}
+	Заказ нового уровня от вашего партнера в системе MoneyLand
+{% endif %}
+{% if body %}
+	Ваш партнер {{ order.line }} линии {{ order.source.first_name }} {{ order.source.username }} заказал у вас {{ order.level }} уровень.
+	В заявке указано что оплата произведена с помощью системы {{ order.paysystem }}, код протекции = {{ order.protection }}
+{% endif %}
